@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joseph Kimani — Engineering &amp; Systems Portfolio</title>
+  <title>Joseph Kimani — Engineering and Systems Portfolio</title>
   <style>
     :root {
       /* Light Mode Palette */
@@ -385,7 +385,7 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 1.25rem;
+      padding: 1.15rem;
       box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
       display: flex;
@@ -402,6 +402,23 @@
       transform: translateY(-2px);
       border-color: var(--accent);
       background: var(--surface-hover);
+    }
+
+    .card-thumb {
+      width: 100%;
+      height: 128px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      margin-bottom: 0.85rem;
+      display: block;
+    }
+
+    .card-thumb.logo-thumb {
+      object-fit: contain;
+      padding: 0.65rem;
+      background: #ffffff;
     }
 
     .card h3 {
@@ -581,23 +598,12 @@
     .modal-caption {
       font-size: 0.86rem;
       color: var(--muted);
-      margin-bottom: 0.35rem;
-    }
-
-    .modal-credit {
-      font-size: 0.78rem;
-      color: var(--accent);
-    }
-
-    .modal-credit a {
-      color: var(--accent);
-      text-decoration: underline;
     }
   </style>
 </head>
 <body class="dark">
 
-  <!-- 10 Engineering Background Photos (changes every 25 seconds) -->
+  <!-- 10 Engineering Background Photos -->
   <div class="bg-slideshow" id="bgSlideshow" aria-hidden="true"></div>
   <div class="bg-overlay" aria-hidden="true"></div>
 
@@ -671,6 +677,7 @@
       <div class="projects-grid">
         <article class="card" data-category="hardware" data-project="0">
           <div>
+            <img class="card-thumb" src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTSFNT3lCCbPynt22oL5hEeFv8OnC89ifv6_HvyzZ9SWGcZzPm59gZNZ9LCroJpOKEssQF7lH2QdJ6OYkk" alt="Street light pole on a dark road at night" />
             <h3>TRIAC Automatic Street Light Controller</h3>
             <p>Built and tested an AC dusk to dawn lighting circuit using a BT136 TRIAC, LDR light sensor, and 100k&Omega; biasing network with multimeter diagnostics.</p>
           </div>
@@ -686,6 +693,7 @@
 
         <article class="card" data-category="cad" data-project="1">
           <div>
+            <img class="card-thumb" src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcTlGZCQvUi5qsUPEFFjo9FyQWq4823YWjee8PHSFm2wMucBvUxCefW9cCjiaNx9gpvpv0cyYJF-C-ZCvS4" alt="Scissor lift linkage with steel cross braces and pins" />
             <h3>Parametric Scissor Lift in FreeCAD</h3>
             <p>Modeled a multi link scissor lift assembly in FreeCAD using Sketcher and Part Design workbenches with mechanical constraints and component clearances.</p>
           </div>
@@ -701,6 +709,7 @@
 
         <article class="card" data-category="hardware" data-project="2">
           <div>
+            <img class="card-thumb" src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSaxO6o8DHkPdCQlU0RxSackwUs2YxrXC09xzKYgnGbH_cQW1NFowC8WKM3_mhLGv59NsFxduuLPIeQbhM" alt="Electronics laboratory test bench and measurement instruments" />
             <h3>Op Amp Filters, Oscillators and Logic</h3>
             <p>Worked through active filters, summing and integrator op amp stages, Wien bridge oscillators, BJT biasing, RLC transients, and 2's complement digital logic.</p>
           </div>
@@ -716,6 +725,7 @@
 
         <article class="card" data-category="cad" data-project="3">
           <div>
+            <img class="card-thumb" src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQJTNlw8vJ4rOOveUVUGUHXpTq8tC0VfUq8xdzYGwO8gEs3B2lKvDgUNFP4J_xvk_rrXu0ViQ5za8D_cJA" alt="CNC milling tool cutting a metal part in a workshop" />
             <h3>Planar Mechanisms and Materials Study</h3>
             <p>Analyzed velocity and motion in crank and slotted lever and Scotch yoke mechanisms alongside CNC milling, machining, and steel heat treatment processes.</p>
           </div>
@@ -731,6 +741,7 @@
 
         <article class="card" data-category="cad" data-project="4">
           <div>
+            <img class="card-thumb logo-thumb" src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSpBeQfbPd69L51sPkjwnBODSHqqEqKZzbiSfkeaHzMBZMt-1bEvFz7K_ShoSEcUZbQlZngZ6Ikiow8ADs" alt="Blender 3D logo icon" />
             <h3>3D Mechanical and Asset Modeling in Blender</h3>
             <p>Created 3D models and rendered forms in Blender to explore hard surface geometry, proportions, and visual presentation for technical concepts.</p>
           </div>
@@ -746,6 +757,7 @@
 
         <article class="card" data-category="analysis" data-project="5">
           <div>
+            <img class="card-thumb" src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcSeVj-DmigaI5hOpuUHTSDm0HkBVG85sDbTNW8eQi1hHbDswaSmiTevFgV4F_AQzazYiIrYZyuYomLvOYk" alt="Candlestick price chart on a market screen" />
             <h3>Web Deployments and XAU/USD Macro Tracking</h3>
             <p>Deployed static web portfolios via GitHub and Render while tracking U.S. macro releases (CPI, PPI, NFP, FOMC) alongside technical price action on gold.</p>
           </div>
@@ -771,6 +783,7 @@
       <div class="skills-grid">
         <div class="card">
           <div>
+            <img class="card-thumb logo-thumb" src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSpBeQfbPd69L51sPkjwnBODSHqqEqKZzbiSfkeaHzMBZMt-1bEvFz7K_ShoSEcUZbQlZngZ6Ikiow8ADs" alt="Blender 3D logo for modeling and design tools" />
             <h3>Design and Modeling</h3>
             <p>Parametric modeling, mechanism geometry, and 3D visual assets.</p>
           </div>
@@ -784,6 +797,7 @@
 
         <div class="card">
           <div>
+            <img class="card-thumb" src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQ3Al6GHDd79YZ3dL0E_gCv5urD4xT87KLrLPJkiuNtyzjoeqYDstzakIqEhPNPe8Ull1UNzQud0qcz_YI" alt="Circuit board work with soldering iron" />
             <h3>Circuits and Lab Testing</h3>
             <p>Circuit design, power switching, and hands on multimeter troubleshooting.</p>
           </div>
@@ -797,6 +811,7 @@
 
         <div class="card">
           <div>
+            <img class="card-thumb" src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcR8RaoNReq0HjlcK82LXnQBLMA1gPONTQI_eeiB5r7Q33NV_iccfSM0xJPKL-w8RxRr3ai1_ZosY2MoO1c" alt="HTML and CSS code shown on a screen" />
             <h3>Code and Deployment</h3>
             <p>Responsive static websites, source control, and continuous cloud deploys.</p>
           </div>
@@ -810,6 +825,7 @@
 
         <div class="card">
           <div>
+            <img class="card-thumb" src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRTn5R5tYrQ9VA95XzakYgK9PK57FUNBuCCvJFHRMUmf1Lo7a7KoLc4kxsIyaFY57Oz1sxjRuxBehqcFU8" alt="Math formulas and engineering calculations" />
             <h3>Math and Systems</h3>
             <p>Multivariable calculus, dynamic systems, and structured market analysis.</p>
           </div>
@@ -854,7 +870,6 @@
 
     <footer>
       <div>&copy; <span id="year"></span> Joseph Kimani &bull; keemanijoseph@gmail.com</div>
-      <div class="mono" id="slideCounter">Backdrop 1/10 (25s)</div>
     </footer>
   </div>
 
@@ -869,7 +884,6 @@
         <img id="modalPhoto" src="" alt="" />
       </div>
       <p class="modal-caption" id="modalCaption"></p>
-      <div class="modal-credit" id="modalCredit"></div>
     </div>
   </div>
 
@@ -956,55 +970,43 @@
       });
     });
 
-    // Project Photos
+    // Project Photos (distinct from the top card image)
     const projectPhotos = [
       {
         title: "TRIAC Automatic Street Light Controller",
-        photo: "https://www.build-electronic-circuits.com/wp-content/uploads/2013/11/ldr-circuit-on-breadboard-1024x768.jpg",
-        alt: "Photoresistor and biasing components wired on a breadboard",
-        caption: "Light dependent resistor and circuit biasing layout on a breadboard.",
-        sourceName: "Build Electronic Circuits",
-        sourceUrl: "https://www.build-electronic-circuits.com/ldr-circuit-diagram/"
+        photo: "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcT_-i1T7TVqSMG1jfZXVjNcGCbts2vFNykKnu-2_cSYfBcoxlJdeTdiCs4DloMK3QKQfSj5-lQSW0iWwEw",
+        alt: "Photoresistor sensor mounted on a small breadboard",
+        caption: "Light dependent resistor sensor wired on a breadboard for light level detection."
       },
       {
         title: "Parametric Scissor Lift in FreeCAD",
-        photo: "https://cdn.cadcrowd.com/3d-models/59/98/59982ad2-428a-4c41-8504-1154ae8c5606/gallery/f5c9bb01-f54c-4cb3-a613-76cfddaa072a/medium.jpg",
-        alt: "3D CAD model of a scissor lift frame and linkage mechanism",
-        caption: "Scissor lift linkage geometry and base/top frame assembly reference.",
-        sourceName: "CadCrowd",
-        sourceUrl: "https://www.cadcrowd.com/3d-models/scissor-lift"
+        photo: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTzEPiitHl_NZ21a6LYxcJVTHlzgrCTOrDPAjtDLK_jjyAM2UpeAZYoDdqIbNG2f1qfy9KpiLLI56L_Yno",
+        alt: "Scissor lift linkage diagram showing lifting arms and base",
+        caption: "Scissor lift linkage diagram illustrating arm geometry and vertical lift travel."
       },
       {
         title: "Op Amp Filters, Oscillators and Logic",
-        photo: "https://labsland.com/pub/docs/experiments/electronics/en/_images/opamp-non-inverting-100k_breadboard_funcgen_powersupply_oscilloscope.png",
-        alt: "Op amp breadboard setup with function generator, power supply, and oscilloscope",
-        caption: "Analog circuit test bench showing signal generation, supply rail, and oscilloscope waveform.",
-        sourceName: "LabsLand",
-        sourceUrl: "https://labsland.com/pub/docs/experiments/electronics/en/opamps.html"
+        photo: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcTbIPGJlaomt1XXcdJxwQzOcRYBtwNANwvhEXqhuIfz-LJltexGkZNEHv_hbY0VRO7FTo9J3_LRrqSZURU",
+        alt: "Technician probing a circuit board with an oscilloscope alongside a circuit schematic on a monitor",
+        caption: "Probing a circuit stage with an oscilloscope while reviewing the schematic on screen."
       },
       {
         title: "Planar Mechanisms and Materials Study",
-        photo: "https://www.runsom.com/wp-content/uploads/2023/09/Metalworking-CNC-machine.jpg",
-        alt: "CNC milling spindle and coolant nozzle over a metal workpiece",
-        caption: "Precision CNC milling spindle and coolant nozzle in a machining setup.",
-        sourceName: "Runsom",
-        sourceUrl: "https://www.runsom.com/blog/top-7-cnc-metal-milling-machines-for-precision-metalwork/"
+        photo: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcROQae6YqaUEvLY3hhuRR6Jj4GeISf2rF4JI7bZq3Z4mtM_wUW09E1OgrhwJDr3zszvdTcIJeiB-Xsf3yI",
+        alt: "Engineering linkage and mechanical motion diagram",
+        caption: "Linkage and motion diagram used to study mechanical geometry and travel."
       },
       {
         title: "3D Mechanical and Asset Modeling in Blender",
-        photo: "https://blenderartists.org/uploads/default/original/4X/5/0/c/50cb18ada1785b3a991dee831f8fd961f7dc7ea7.png",
-        alt: "Shaded 3D mechanical assembly render with fasteners and rollers",
-        caption: "Hard surface mechanical component detailing and shaded 3D render.",
-        sourceName: "Blender Artists",
-        sourceUrl: "https://blenderartists.org/t/looking-for-a-mechanical-cad-type-of-rendering-for-modeling-in-the-viewport-2-7-or-2-8/1144310"
+        photo: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRCEoVdGZpi8XKt1uJ475aO0z5Pq2NPc6xJ4WCUiUgehtZaqn8U3FI5TuHvEOYafl67b6umpC4f8pZmJJ8",
+        alt: "Wireframe 3D model of a mechanical crankshaft",
+        caption: "Wireframe 3D geometry view of a mechanical component."
       },
       {
         title: "Web Deployments and XAU/USD Macro Tracking",
-        photo: "https://static.vecteezy.com/system/resources/previews/079/734/457/non_2x/online-gold-trading-banner-pure-gold-bullion-bar-and-digital-screen-displaying-financial-market-candlestick-charts-photo.jpg",
-        alt: "Gold bar in front of a screen showing candlestick market charts",
-        caption: "Gold price chart and market structure tracking alongside macro events.",
-        sourceName: "Vecteezy",
-        sourceUrl: "https://www.vecteezy.com/photo/79734457-online-gold-trading-banner-pure-gold-bullion-bar-and-digital-screen-displaying-financial-market-candlestick-charts"
+        photo: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRG-kV0w7b8ztQLOzM73ZNIdhiYDL7PZP3AQ9VmVJ4MtVt2NtXslBWO7VcBXQPRy1H5iDYSQBA2mkOFEH4",
+        alt: "Gold candlestick price chart on a digital display",
+        caption: "Candlestick chart view for tracking gold price movement."
       }
     ];
 
@@ -1012,7 +1014,6 @@
     const modalTitle = document.getElementById("modalTitle");
     const modalPhoto = document.getElementById("modalPhoto");
     const modalCaption = document.getElementById("modalCaption");
-    const modalCredit = document.getElementById("modalCredit");
     const closeModalBtn = document.getElementById("closeModal");
     let lastFocusedBtn = null;
 
@@ -1024,7 +1025,6 @@
       modalPhoto.src = item.photo;
       modalPhoto.alt = item.alt;
       modalCaption.textContent = item.caption;
-      modalCredit.innerHTML = `Reference image: <a href="${item.sourceUrl}" target="_blank" rel="noopener noreferrer">${item.sourceName}</a>`;
       modalBackdrop.classList.add("open");
       closeModalBtn.focus();
     }
@@ -1058,20 +1058,19 @@
 
     // 10 Backdrop Slideshow (rotates every 25 seconds)
     const backdropUrls = [
-      "https://jetechnologysolutions.com/wp-content/uploads/2026/10/CNC-Milling-a-Pocketed-Aluminum-Bracket.png",
-      "https://www.tflex.com/upload/medialibrary/b24/b2409348f7adeea0fbf573f587085054.jpg",
-      "https://amarischemicalsolutions.com/wp-content/uploads/2025/08/Lab-circuit-boards-Amaris-Chemicals.png",
-      "https://www.tek.com/-/media/solutions/education/l3/fundamental-teaching-bench-level-3-section-1__600x330.jpg?h=330&iar=0&w=600",
-      "https://blog.utc.edu/news/2023/05/new-mechatronics-lab-focuses-on-robots-and-artificial-intelligence/robotics-lab-opening-23-10/",
-      "https://moderntools.com.au/wp-content/uploads/2026/06/lathe-cutting-tool-centre-height-setup.png",
-      "https://static.vecteezy.com/system/resources/previews/073/299/710/large_2x/close-up-of-a-black-microchip-on-a-green-circuit-board-showing-technology-and-innovation-photo.jpg",
-      "https://static.vecteezy.com/system/resources/previews/069/746/042/non_2x/wireframe-blue-geometry-dimension-geometric-shapes-3d-modeling-mathematical-topology-surface-sphere-torus-ellipsoid-parametric-curves-mesh-on-isolated-background-vector.jpg",
-      "https://cdn.prod.website-files.com/66b236099e39348f6967371b/699c82e041fa4fb01bd66951_Substation%20Cycle%20Diagram%20-%20Copy%20(1)%20(1).jpg",
-      "https://robodk.com/blog/wp-content/uploads/2023/07/iStock-820599196.jpg"
+      "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTSFNT3lCCbPynt22oL5hEeFv8OnC89ifv6_HvyzZ9SWGcZzPm59gZNZ9LCroJpOKEssQF7lH2QdJ6OYkk",
+      "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcTlGZCQvUi5qsUPEFFjo9FyQWq4823YWjee8PHSFm2wMucBvUxCefW9cCjiaNx9gpvpv0cyYJF-C-ZCvS4",
+      "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSaxO6o8DHkPdCQlU0RxSackwUs2YxrXC09xzKYgnGbH_cQW1NFowC8WKM3_mhLGv59NsFxduuLPIeQbhM",
+      "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQJTNlw8vJ4rOOveUVUGUHXpTq8tC0VfUq8xdzYGwO8gEs3B2lKvDgUNFP4J_xvk_rrXu0ViQ5za8D_cJA",
+      "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSpBeQfbPd69L51sPkjwnBODSHqqEqKZzbiSfkeaHzMBZMt-1bEvFz7K_ShoSEcUZbQlZngZ6Ikiow8ADs",
+      "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcSeVj-DmigaI5hOpuUHTSDm0HkBVG85sDbTNW8eQi1hHbDswaSmiTevFgV4F_AQzazYiIrYZyuYomLvOYk",
+      "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcTaRdafFNPMNM70PGpMnRJBt0m7_uqqGTqVu1E72bVxG045rRuKCndp69CoLJv3H51e7xpBy4no3wuv5qk",
+      "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQ3Al6GHDd79YZ3dL0E_gCv5urD4xT87KLrLPJkiuNtyzjoeqYDstzakIqEhPNPe8Ull1UNzQud0qcz_YI",
+      "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcR8RaoNReq0HjlcK82LXnQBLMA1gPONTQI_eeiB5r7Q33NV_iccfSM0xJPKL-w8RxRr3ai1_ZosY2MoO1c",
+      "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRTn5R5tYrQ9VA95XzakYgK9PK57FUNBuCCvJFHRMUmf1Lo7a7KoLc4kxsIyaFY57Oz1sxjRuxBehqcFU8"
     ];
 
     const slideshowEl = document.getElementById("bgSlideshow");
-    const counterEl = document.getElementById("slideCounter");
 
     if (backdropUrls.length > 0) {
       const slides = backdropUrls.map((url, idx) => {
@@ -1084,7 +1083,6 @@
 
       let currentSlide = 0;
       const totalSlides = slides.length;
-      counterEl.textContent = `Backdrop 1/${totalSlides} (25s)`;
 
       const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (!prefersReduced && totalSlides > 1) {
@@ -1092,11 +1090,8 @@
           slides[currentSlide].classList.remove("active");
           currentSlide = (currentSlide + 1) % totalSlides;
           slides[currentSlide].classList.add("active");
-          counterEl.textContent = `Backdrop ${currentSlide + 1}/${totalSlides} (25s)`;
         }, 25000);
       }
-    } else {
-      counterEl.textContent = "Backdrop 0/10 (Set URLs)";
     }
   </script>
 </body>
