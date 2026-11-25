@@ -59,7 +59,7 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
-    /* 10-Photo Engineering Background Slideshow */
+    /* 10 Photo Engineering Background Slideshow */
     .bg-slideshow {
       position: fixed;
       inset: 0;
@@ -300,7 +300,7 @@
       color: var(--text);
     }
 
-    /* Section Header & Filter Controls */
+    /* Section Header and Filter Controls */
     section { margin-bottom: 2.6rem; }
 
     .section-header-row {
@@ -368,7 +368,7 @@
       border-color: var(--accent);
     }
 
-    /* Cards & Grids */
+    /* Cards and Grids */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
@@ -404,21 +404,8 @@
       background: var(--surface-hover);
     }
 
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.5rem;
-      font-size: 0.74rem;
-      font-weight: 700;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
     .card h3 {
-      font-size: 1.04rem;
+      font-size: 1.05rem;
       line-height: 1.35;
       margin-bottom: 0.45rem;
     }
@@ -433,7 +420,7 @@
       margin-top: auto;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.8rem;
     }
 
     .pill-list {
@@ -452,20 +439,20 @@
       border: 1px solid var(--border);
     }
 
-    .inspect-btn {
+    .view-btn {
       align-self: flex-start;
       background: var(--accent-glow);
       color: var(--accent);
       border: 1px solid var(--border);
-      padding: 0.32rem 0.68rem;
+      padding: 0.35rem 0.75rem;
       border-radius: 6px;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 600;
       cursor: pointer;
       transition: border-color 0.15s ease, background 0.15s ease;
     }
 
-    .inspect-btn:hover {
+    .view-btn:hover {
       border-color: var(--accent);
     }
 
@@ -525,12 +512,12 @@
       font-size: 0.84rem;
     }
 
-    /* Technical Spec Modal */
+    /* Project Photo Viewer Modal */
     .modal-backdrop {
       position: fixed;
       inset: 0;
       z-index: 50;
-      background: rgba(2, 8, 22, 0.78);
+      background: rgba(2, 8, 22, 0.8);
       backdrop-filter: blur(6px);
       display: none;
       align-items: center;
@@ -546,9 +533,9 @@
       background: var(--surface);
       border: 1px solid var(--accent);
       border-radius: 16px;
-      max-width: 560px;
+      max-width: 600px;
       width: 100%;
-      padding: 1.65rem;
+      padding: 1.5rem;
       box-shadow: 0 24px 48px rgba(0, 0, 0, 0.65);
     }
 
@@ -560,17 +547,8 @@
       margin-bottom: 0.9rem;
     }
 
-    .modal-kicker {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-      margin-bottom: 0.2rem;
-    }
-
     .modal-title {
-      font-size: 1.25rem;
+      font-size: 1.22rem;
       line-height: 1.3;
     }
 
@@ -585,30 +563,35 @@
       cursor: pointer;
     }
 
-    .modal-body p {
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin-bottom: 1rem;
-    }
-
-    .spec-list {
-      list-style: none;
-      display: grid;
-      gap: 0.55rem;
-      margin-bottom: 1.15rem;
-    }
-
-    .spec-list li {
+    .modal-photo-frame {
       background: var(--surface-subtle);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.55rem 0.8rem;
-      font-size: 0.85rem;
-      color: var(--text);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 0.85rem;
     }
 
-    .spec-list strong {
+    .modal-photo-frame img {
+      display: block;
+      width: 100%;
+      max-height: 340px;
+      object-fit: cover;
+    }
+
+    .modal-caption {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .modal-credit {
+      font-size: 0.78rem;
       color: var(--accent);
+    }
+
+    .modal-credit a {
+      color: var(--accent);
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -639,9 +622,9 @@
         <span>Engineering &bull; Hardware &bull; CAD &bull; Web</span>
       </div>
       <h1>Joseph Kimani</h1>
-      <div class="hero-role">Mechatronics, Mechanical &amp; Electrical Systems Builder</div>
+      <div class="hero-role">Mechatronics, Mechanical and Electrical Systems Builder</div>
       <p>
-        I build hands-on electronic circuits, parametric CAD mechanisms, 3D models, and clean web tools—grounded in first-principles engineering analysis and collaborative problem-solving.
+        I build hands on electronic circuits, parametric CAD mechanisms, 3D models, and clean web tools grounded in first principles engineering analysis and collaborative problem solving.
       </p>
       <div class="cta-row">
         <a href="#projects" class="btn-primary">View Projects</a>
@@ -653,18 +636,18 @@
       <div class="telemetry-bar">
         <div class="telemetry-item">
           <div class="telemetry-label">Primary Focus</div>
-          <div class="telemetry-val">Mechatronics &amp; CAD</div>
+          <div class="telemetry-val">Mechatronics and CAD</div>
         </div>
         <div class="telemetry-item">
-          <div class="telemetry-label">Lab &amp; Bench</div>
-          <div class="telemetry-val">AC Power &amp; Analog Circuits</div>
+          <div class="telemetry-label">Lab and Bench</div>
+          <div class="telemetry-val">AC Power and Analog Circuits</div>
         </div>
         <div class="telemetry-item">
           <div class="telemetry-label">Modeling Stack</div>
           <div class="telemetry-val">FreeCAD &bull; Blender</div>
         </div>
         <div class="telemetry-item">
-          <div class="telemetry-label">Location &amp; Status</div>
+          <div class="telemetry-label">Location and Status</div>
           <div class="telemetry-val">Kenya &bull; Open to Builds</div>
         </div>
       </div>
@@ -673,24 +656,23 @@
     <section id="projects">
       <div class="section-header-row">
         <div class="section-top">
-          <h2>Projects &amp; Builds</h2>
-          <p>Filter by discipline or inspect technical specifications.</p>
+          <h2>Projects and Builds</h2>
+          <p>Filter by discipline or click View to see project photos.</p>
         </div>
 
         <div class="filter-bar" role="group" aria-label="Filter projects by category">
           <button type="button" class="filter-btn active" data-filter="all">All (6)</button>
           <button type="button" class="filter-btn" data-filter="hardware">Hardware</button>
-          <button type="button" class="filter-btn" data-filter="cad">CAD &amp; 3D</button>
-          <button type="button" class="filter-btn" data-filter="analysis">Web &amp; Analysis</button>
+          <button type="button" class="filter-btn" data-filter="cad">CAD and 3D</button>
+          <button type="button" class="filter-btn" data-filter="analysis">Web and Analysis</button>
         </div>
       </div>
 
       <div class="projects-grid">
         <article class="card" data-category="hardware" data-project="0">
           <div>
-            <div class="card-top"><span>Hardware &amp; Power</span><span>01</span></div>
             <h3>TRIAC Automatic Street Light Controller</h3>
-            <p>Built and tested an AC dusk-to-dawn lighting circuit using a BT136 TRIAC, LDR light sensor, and 100k&Omega; biasing network with multimeter diagnostics.</p>
+            <p>Built and tested an AC dusk to dawn lighting circuit using a BT136 TRIAC, LDR light sensor, and 100k&Omega; biasing network with multimeter diagnostics.</p>
           </div>
           <div class="card-footer">
             <div class="pill-list">
@@ -698,15 +680,14 @@
               <span class="pill">LDR</span>
               <span class="pill">AC Switching</span>
             </div>
-            <button type="button" class="inspect-btn" data-inspect="0">Inspect Specs &rarr;</button>
+            <button type="button" class="view-btn" data-view="0">View Photos &rarr;</button>
           </div>
         </article>
 
         <article class="card" data-category="cad" data-project="1">
           <div>
-            <div class="card-top"><span>Mechanical CAD</span><span>02</span></div>
             <h3>Parametric Scissor Lift in FreeCAD</h3>
-            <p>Modeled a multi-link scissor lift assembly in FreeCAD using Sketcher and Part Design workbenches with mechanical constraints and component clearances.</p>
+            <p>Modeled a multi link scissor lift assembly in FreeCAD using Sketcher and Part Design workbenches with mechanical constraints and component clearances.</p>
           </div>
           <div class="card-footer">
             <div class="pill-list">
@@ -714,47 +695,44 @@
               <span class="pill">CAD Assembly</span>
               <span class="pill">Mechanisms</span>
             </div>
-            <button type="button" class="inspect-btn" data-inspect="1">Inspect Specs &rarr;</button>
+            <button type="button" class="view-btn" data-view="1">View Photos &rarr;</button>
           </div>
         </article>
 
         <article class="card" data-category="hardware" data-project="2">
           <div>
-            <div class="card-top"><span>Analog &amp; Digital</span><span>03</span></div>
-            <h3>Op-Amp Filters, Oscillators &amp; Logic</h3>
-            <p>Worked through active filters, summing/integrator op-amp stages, Wien bridge oscillators, BJT biasing, RLC transients, and 2's complement digital logic.</p>
+            <h3>Op Amp Filters, Oscillators and Logic</h3>
+            <p>Worked through active filters, summing and integrator op amp stages, Wien bridge oscillators, BJT biasing, RLC transients, and 2's complement digital logic.</p>
           </div>
           <div class="card-footer">
             <div class="pill-list">
-              <span class="pill">Op-Amps</span>
-              <span class="pill">BJTs &amp; RLC</span>
+              <span class="pill">Op Amps</span>
+              <span class="pill">BJTs and RLC</span>
               <span class="pill">Digital Logic</span>
             </div>
-            <button type="button" class="inspect-btn" data-inspect="2">Inspect Specs &rarr;</button>
+            <button type="button" class="view-btn" data-view="2">View Photos &rarr;</button>
           </div>
         </article>
 
         <article class="card" data-category="cad" data-project="3">
           <div>
-            <div class="card-top"><span>Kinematics &amp; Mfg</span><span>04</span></div>
-            <h3>Planar Mechanisms &amp; Materials Study</h3>
-            <p>Analyzed velocity and motion in crank-and-slotted-lever and Scotch yoke mechanisms alongside CNC milling, machining, and steel heat-treatment processes.</p>
+            <h3>Planar Mechanisms and Materials Study</h3>
+            <p>Analyzed velocity and motion in crank and slotted lever and Scotch yoke mechanisms alongside CNC milling, machining, and steel heat treatment processes.</p>
           </div>
           <div class="card-footer">
             <div class="pill-list">
               <span class="pill">Kinematics</span>
-              <span class="pill">CNC &amp; Machining</span>
+              <span class="pill">CNC and Machining</span>
               <span class="pill">Heat Treatment</span>
             </div>
-            <button type="button" class="inspect-btn" data-inspect="3">Inspect Specs &rarr;</button>
+            <button type="button" class="view-btn" data-view="3">View Photos &rarr;</button>
           </div>
         </article>
 
         <article class="card" data-category="cad" data-project="4">
           <div>
-            <div class="card-top"><span>3D Modeling</span><span>05</span></div>
-            <h3>3D Mechanical &amp; Asset Modeling in Blender</h3>
-            <p>Created 3D models and rendered forms in Blender to explore hard-surface geometry, proportions, and visual presentation for technical concepts.</p>
+            <h3>3D Mechanical and Asset Modeling in Blender</h3>
+            <p>Created 3D models and rendered forms in Blender to explore hard surface geometry, proportions, and visual presentation for technical concepts.</p>
           </div>
           <div class="card-footer">
             <div class="pill-list">
@@ -762,23 +740,22 @@
               <span class="pill">3D Modeling</span>
               <span class="pill">Rendering</span>
             </div>
-            <button type="button" class="inspect-btn" data-inspect="4">Inspect Specs &rarr;</button>
+            <button type="button" class="view-btn" data-view="4">View Photos &rarr;</button>
           </div>
         </article>
 
         <article class="card" data-category="analysis" data-project="5">
           <div>
-            <div class="card-top"><span>Web &amp; Market Data</span><span>06</span></div>
-            <h3>Web Deployments &amp; XAU/USD Macro Tracking</h3>
+            <h3>Web Deployments and XAU/USD Macro Tracking</h3>
             <p>Deployed static web portfolios via GitHub and Render while tracking U.S. macro releases (CPI, PPI, NFP, FOMC) alongside technical price action on gold.</p>
           </div>
           <div class="card-footer">
             <div class="pill-list">
               <span class="pill">HTML / CSS / JS</span>
-              <span class="pill">Git &amp; Render</span>
+              <span class="pill">Git and Render</span>
               <span class="pill">XAU/USD</span>
             </div>
-            <button type="button" class="inspect-btn" data-inspect="5">Inspect Specs &rarr;</button>
+            <button type="button" class="view-btn" data-view="5">View Photos &rarr;</button>
           </div>
         </article>
       </div>
@@ -787,15 +764,14 @@
     <section id="skills">
       <div class="section-header-row">
         <div class="section-top">
-          <h2>Skills &amp; Tools</h2>
+          <h2>Skills and Tools</h2>
           <p>Core engineering, design, and software skills used across solo and shared builds.</p>
         </div>
       </div>
       <div class="skills-grid">
         <div class="card">
           <div>
-            <div class="card-top"><span>CAD &amp; 3D</span></div>
-            <h3>Design &amp; Modeling</h3>
+            <h3>Design and Modeling</h3>
             <p>Parametric modeling, mechanism geometry, and 3D visual assets.</p>
           </div>
           <div class="pill-list">
@@ -808,9 +784,8 @@
 
         <div class="card">
           <div>
-            <div class="card-top"><span>Electronics</span></div>
-            <h3>Circuits &amp; Lab Testing</h3>
-            <p>Circuit design, power switching, and hands-on multimeter troubleshooting.</p>
+            <h3>Circuits and Lab Testing</h3>
+            <p>Circuit design, power switching, and hands on multimeter troubleshooting.</p>
           </div>
           <div class="pill-list">
             <span class="pill">Analog Circuits</span>
@@ -822,27 +797,25 @@
 
         <div class="card">
           <div>
-            <div class="card-top"><span>Software &amp; Web</span></div>
-            <h3>Code &amp; Deployment</h3>
+            <h3>Code and Deployment</h3>
             <p>Responsive static websites, source control, and continuous cloud deploys.</p>
           </div>
           <div class="pill-list">
             <span class="pill">HTML</span>
             <span class="pill">CSS</span>
             <span class="pill">JavaScript</span>
-            <span class="pill">GitHub &amp; Render</span>
+            <span class="pill">GitHub and Render</span>
           </div>
         </div>
 
         <div class="card">
           <div>
-            <div class="card-top"><span>Analysis</span></div>
-            <h3>Math &amp; Systems</h3>
+            <h3>Math and Systems</h3>
             <p>Multivariable calculus, dynamic systems, and structured market analysis.</p>
           </div>
           <div class="pill-list">
             <span class="pill">Calculus III</span>
-            <span class="pill">Control &amp; RLC</span>
+            <span class="pill">Control and RLC</span>
             <span class="pill">Technical Analysis</span>
           </div>
         </div>
@@ -853,15 +826,15 @@
       <div class="section-header-row">
         <div class="section-top">
           <h2>About</h2>
-          <p>Engineering student in Kenya focused on practical execution and first-principles clarity.</p>
+          <p>Engineering student in Kenya focused on practical execution and first principles clarity.</p>
         </div>
       </div>
       <div class="panel">
         <p>
-          I'm <strong>Joseph Kimani</strong>, studying engineering across mechanical, electrical, and mechatronics topics while building real circuits, CAD assemblies, and web projects. I like breaking complex problems down step by step—whether debugging a physical circuit on the bench, working through multi-variable math and mechanism kinematics, or structuring a clean web layout.
+          I am <strong>Joseph Kimani</strong>, studying engineering across mechanical, electrical, and mechatronics topics while building real circuits, CAD assemblies, and web projects. I like breaking complex problems down step by step, whether debugging a physical circuit on the bench, working through multi variable math and mechanism kinematics, or structuring a clean web layout.
         </p>
         <p>
-          I also collaborate closely on technical projects and skill-sharing, combining hardware and software workflows with disciplined analytical habits.
+          I also collaborate closely on technical projects and skill sharing, combining hardware and software workflows with disciplined analytical habits.
         </p>
       </div>
     </section>
@@ -885,20 +858,18 @@
     </footer>
   </div>
 
-  <!-- Technical Spec Modal -->
-  <div class="modal-backdrop" id="specModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <!-- Project Photo Modal -->
+  <div class="modal-backdrop" id="photoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-box">
       <div class="modal-head">
-        <div>
-          <div class="modal-kicker" id="modalKicker">Hardware &amp; Power</div>
-          <h3 class="modal-title" id="modalTitle">Project Title</h3>
-        </div>
-        <button type="button" class="modal-close" id="closeModal" aria-label="Close modal">ESC</button>
+        <h3 class="modal-title" id="modalTitle">Project Title</h3>
+        <button type="button" class="modal-close" id="closeModal" aria-label="Close photo viewer">ESC</button>
       </div>
-      <div class="modal-body">
-        <p id="modalSummary"></p>
-        <ul class="spec-list" id="modalSpecs"></ul>
+      <div class="modal-photo-frame">
+        <img id="modalPhoto" src="" alt="" />
       </div>
+      <p class="modal-caption" id="modalCaption"></p>
+      <div class="modal-credit" id="modalCredit"></div>
     </div>
   </div>
 
@@ -985,144 +956,138 @@
       });
     });
 
-    // Project Technical Inspection Modal
-    const projectSpecs = [
+    // Project Photos (replace any URL with your own project photos as needed)
+    const projectPhotos = [
       {
-        kicker: "01 // Hardware & Power",
         title: "TRIAC Automatic Street Light Controller",
-        summary: "Solid-state AC switching controller designed to energize outdoor lighting automatically at dusk without mechanical relay wear.",
-        specs: [
-          "<strong>Core Components:</strong> BT136 TRIAC, Cadmium-Sulfide LDR, 100k&Omega; gate biasing resistor network.",
-          "<strong>Diagnostics:</strong> Verified gate trigger thresholds, voltage divider response under ambient light shifts, and load continuity via multimeter.",
-          "<strong>Key Takeaway:</strong> Proper gate resistor sizing prevents false triggering during twilight transitions."
-        ]
+        photo: "https://www.build-electronic-circuits.com/wp-content/uploads/2013/11/ldr-circuit-on-breadboard-1024x768.jpg",
+        alt: "Photoresistor and biasing components wired on a breadboard",
+        caption: "Light dependent resistor and circuit biasing layout on a breadboard.",
+        sourceName: "Build Electronic Circuits",
+        sourceUrl: "https://www.build-electronic-circuits.com/ldr-circuit-diagram/"
       },
       {
-        kicker: "02 // Mechanical CAD",
         title: "Parametric Scissor Lift in FreeCAD",
-        summary: "Multi-stage vertical lifting mechanism built with parametric sketches so arm lengths and pivot clearances update cleanly.",
-        specs: [
-          "<strong>Workbenches:</strong> FreeCAD Sketcher, Part Design, and assembly constraint workflows.",
-          "<strong>Engineering Focus:</strong> Pin-joint tolerances, stroke-to-actuator ratio, and interference checks across full extension and retraction.",
-          "<strong>Key Takeaway:</strong> Constraining geometry around shared master dimensions eliminates broken dependencies during edits."
-        ]
+        photo: "https://cdn.cadcrowd.com/3d-models/59/98/59982ad2-428a-4c41-8504-1154ae8c5606/gallery/f5c9bb01-f54c-4cb3-a613-76cfddaa072a/medium.jpg",
+        alt: "3D CAD model of a scissor lift frame and linkage mechanism",
+        caption: "Scissor lift linkage geometry and base/top frame assembly reference.",
+        sourceName: "CadCrowd",
+        sourceUrl: "https://www.cadcrowd.com/3d-models/scissor-lift"
       },
       {
-        kicker: "03 // Analog & Digital",
-        title: "Op-Amp Filters, Oscillators & Logic",
-        summary: "Hands-on circuit analysis and breadboard validation spanning continuous-time analog stages and binary arithmetic blocks.",
-        specs: [
-          "<strong>Analog Stages:</strong> Active low/high-pass filters, summing amplifiers, integrators, and Wien bridge sine oscillators.",
-          "<strong>Transistors & Transients:</strong> BJT DC bias stabilization and underdamped/overdamped RLC step response.",
-          "<strong>Digital Systems:</strong> Signed 2's complement arithmetic and combinational logic gate minimization."
-        ]
+        title: "Op Amp Filters, Oscillators and Logic",
+        photo: "https://labsland.com/pub/docs/experiments/electronics/en/_images/opamp-non-inverting-100k_breadboard_funcgen_powersupply_oscilloscope.png",
+        alt: "Op amp breadboard setup with function generator, power supply, and oscilloscope",
+        caption: "Analog circuit test bench showing signal generation, supply rail, and oscilloscope waveform.",
+        sourceName: "LabsLand",
+        sourceUrl: "https://labsland.com/pub/docs/experiments/electronics/en/opamps.html"
       },
       {
-        kicker: "04 // Kinematics & Manufacturing",
-        title: "Planar Mechanisms & Materials Study",
-        summary: "Graphical and analytical kinematics paired with workshop machining and ferrous heat-treatment metallurgy.",
-        specs: [
-          "<strong>Mechanisms:</strong> Velocity/acceleration polygon analysis for crank-and-slotted-lever quick-return and Scotch yoke linkages.",
-          "<strong>Manufacturing:</strong> CNC milling toolpath considerations, turning operations, and dimensional tolerancing.",
-          "<strong>Materials:</strong> Annealing, normalizing, quenching, and tempering effects on carbon steel microstructure."
-        ]
+        title: "Planar Mechanisms and Materials Study",
+        photo: "https://www.runsom.com/wp-content/uploads/2023/09/Metalworking-CNC-machine.jpg",
+        alt: "CNC milling spindle and coolant nozzle over a metal workpiece",
+        caption: "Precision CNC milling spindle and coolant nozzle in a machining setup.",
+        sourceName: "Runsom",
+        sourceUrl: "https://www.runsom.com/blog/top-7-cnc-metal-milling-machines-for-precision-metalwork/"
       },
       {
-        kicker: "05 // 3D Modeling",
-        title: "3D Mechanical & Asset Modeling in Blender",
-        summary: "Subdivision and hard-surface modeling workflows to communicate mechanical form, lighting, and assembly concepts visually.",
-        specs: [
-          "<strong>Modeling Tools:</strong> Bevel workflows, boolean cleanup, edge-flow control, and proportional scaling.",
-          "<strong>Presentation:</strong> Studio lighting setups and PBR material shaders for clean technical renders.",
-          "<strong>Key Takeaway:</strong> Combining parametric CAD accuracy with Blender rendering bridges engineering and visual storytelling."
-        ]
+        title: "3D Mechanical and Asset Modeling in Blender",
+        photo: "https://blenderartists.org/uploads/default/original/4X/5/0/c/50cb18ada1785b3a991dee831f8fd961f7dc7ea7.png",
+        alt: "Shaded 3D mechanical assembly render with fasteners and rollers",
+        caption: "Hard surface mechanical component detailing and shaded 3D render.",
+        sourceName: "Blender Artists",
+        sourceUrl: "https://blenderartists.org/t/looking-for-a-mechanical-cad-type-of-rendering-for-modeling-in-the-viewport-2-7-or-2-8/1144310"
       },
       {
-        kicker: "06 // Web & Market Data",
-        title: "Web Deployments & XAU/USD Macro Tracking",
-        summary: "Fast, zero-framework web publishing workflows combined with structured macroeconomic event tracking.",
-        specs: [
-          "<strong>Web Stack:</strong> Semantic HTML5, responsive CSS Grid, vanilla JavaScript, and GitHub-to-Render continuous deployment.",
-          "<strong>Macro Calendar:</strong> Tracking U.S. CPI, PPI, NFP, and FOMC rate decisions against Treasury yields and DXY.",
-          "<strong>Technical Workflow:</strong> Multi-timeframe structure mapping and disciplined risk journaling on XAU/USD."
-        ]
+        title: "Web Deployments and XAU/USD Macro Tracking",
+        photo: "https://static.vecteezy.com/system/resources/previews/079/734/457/non_2x/online-gold-trading-banner-pure-gold-bullion-bar-and-digital-screen-displaying-financial-market-candlestick-charts-photo.jpg",
+        alt: "Gold bar in front of a screen showing candlestick market charts",
+        caption: "Gold price chart and market structure tracking alongside macro events.",
+        sourceName: "Vecteezy",
+        sourceUrl: "https://www.vecteezy.com/photo/79734457-online-gold-trading-banner-pure-gold-bullion-bar-and-digital-screen-displaying-financial-market-candlestick-charts"
       }
     ];
 
-    const specModal = document.getElementById("specModal");
-    const modalKicker = document.getElementById("modalKicker");
+    const modalBackdrop = document.getElementById("photoModal");
     const modalTitle = document.getElementById("modalTitle");
-    const modalSummary = document.getElementById("modalSummary");
-    const modalSpecs = document.getElementById("modalSpecs");
+    const modalPhoto = document.getElementById("modalPhoto");
+    const modalCaption = document.getElementById("modalCaption");
+    const modalCredit = document.getElementById("modalCredit");
     const closeModalBtn = document.getElementById("closeModal");
-    let lastFocusedEl = null;
+    let lastFocusedBtn = null;
 
-    document.querySelectorAll(".inspect-btn").forEach((btn) => {
+    function openPhotoModal(index, triggerEl) {
+      const item = projectPhotos[index];
+      if (!item) return;
+      lastFocusedBtn = triggerEl || document.activeElement;
+      modalTitle.textContent = item.title;
+      modalPhoto.src = item.photo;
+      modalPhoto.alt = item.alt;
+      modalCaption.textContent = item.caption;
+      modalCredit.innerHTML = `Reference image: <a href="${item.sourceUrl}" target="_blank" rel="noopener noreferrer">${item.sourceName}</a>`;
+      modalBackdrop.classList.add("open");
+      closeModalBtn.focus();
+    }
+
+    function closePhotoModal() {
+      modalBackdrop.classList.remove("open");
+      modalPhoto.src = "";
+      if (lastFocusedBtn) {
+        lastFocusedBtn.focus();
+        lastFocusedBtn = null;
+      }
+    }
+
+    document.querySelectorAll("[data-view]").forEach((btn) => {
       btn.addEventListener("click", () => {
-        const data = projectSpecs[Number(btn.dataset.inspect)];
-        if (!data) return;
-
-        lastFocusedEl = btn;
-        modalKicker.textContent = data.kicker;
-        modalTitle.textContent = data.title;
-        modalSummary.textContent = data.summary;
-        modalSpecs.innerHTML = data.specs.map((item) => `<li>${item}</li>`).join("");
-
-        specModal.classList.add("open");
-        closeModalBtn.focus();
+        openPhotoModal(Number(btn.dataset.view), btn);
       });
     });
 
-    function closeModal() {
-      specModal.classList.remove("open");
-      if (lastFocusedEl) lastFocusedEl.focus();
-    }
+    closeModalBtn.addEventListener("click", closePhotoModal);
 
-    closeModalBtn.addEventListener("click", closeModal);
-    specModal.addEventListener("click", (e) => {
-      if (e.target === specModal) closeModal();
+    modalBackdrop.addEventListener("click", (e) => {
+      if (e.target === modalBackdrop) closePhotoModal();
     });
+
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && specModal.classList.contains("open")) {
-        closeModal();
+      if (e.key === "Escape" && modalBackdrop.classList.contains("open")) {
+        closePhotoModal();
       }
     });
 
-    // 10 Engineering Background Photos rotating every 25 seconds
-    const engineeringPhotos = [
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=1920&q=80"
+    // 10 Backdrop Slideshow (add 10 image URLs below; falls back cleanly to dark navy if empty)
+    const backdropUrls = [
+      // Add image URLs here, e.g. "https://example.com/circuit-bench.jpg"
     ];
 
-    const slideshow = document.getElementById("bgSlideshow");
-    const counter = document.getElementById("slideCounter");
-    let idx = 0;
+    const slideshowEl = document.getElementById("bgSlideshow");
+    const counterEl = document.getElementById("slideCounter");
 
-    engineeringPhotos.forEach((src, i) => {
-      const slide = document.createElement("div");
-      slide.className = i === 0 ? "bg-slide active" : "bg-slide";
-      slide.style.backgroundImage = `url('${src}')`;
-      slideshow.appendChild(slide);
-    });
+    if (backdropUrls.length > 0) {
+      const slides = backdropUrls.map((url, idx) => {
+        const div = document.createElement("div");
+        div.className = "bg-slide" + (idx === 0 ? " active" : "");
+        div.style.backgroundImage = `url("${url}")`;
+        slideshowEl.appendChild(div);
+        return div;
+      });
 
-    const slideNodes = document.querySelectorAll(".bg-slide");
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let currentSlide = 0;
+      const totalSlides = slides.length;
+      counterEl.textContent = `Backdrop 1/${totalSlides} (25s)`;
 
-    if (!prefersReducedMotion) {
-      setInterval(() => {
-        slideNodes[idx].classList.remove("active");
-        idx = (idx + 1) % slideNodes.length;
-        slideNodes[idx].classList.add("active");
-        counter.textContent = `Backdrop ${idx + 1}/10 (25s)`;
-      }, 25000);
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!prefersReduced && totalSlides > 1) {
+        setInterval(() => {
+          slides[currentSlide].classList.remove("active");
+          currentSlide = (currentSlide + 1) % totalSlides;
+          slides[currentSlide].classList.add("active");
+          counterEl.textContent = `Backdrop ${currentSlide + 1}/${totalSlides} (25s)`;
+        }, 25000);
+      }
+    } else {
+      counterEl.textContent = "Backdrop 0/10 (Set URLs)";
     }
   </script>
 </body>
