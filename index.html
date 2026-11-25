@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name — Personal Portfolio</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #2563eb;
+      --border: #e2e8f0;
+    }
+
+    body.dark {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #60a5fa;
+      --border: #334155;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    button.theme-btn {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.7rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    header { margin-bottom: 3.5rem; }
+
+    header h1 {
+      font-size: 2.25rem;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #ffffff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    section { margin-bottom: 3rem; }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      margin-right: 0.35rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <div class="logo">YourName.</div>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-btn" id="themeToggle">Dark Mode</button>
+      </div>
+    </nav>
+
+    <header>
+      <h1>Hi, I'm Your Name.</h1>
+      <p>
+        I build practical hardware, software, and web projects. Here is a selection of things I have designed, tested, and shipped.
+      </p>
+      <a class="cta" href="#contact">Get in Touch</a>
+    </header>
+
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Project One</h3>
+          <p>Describe what you built, the problem it solves, and the key outcome in two short sentences.</p>
+          <div>
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <a href="#" target="_blank">View Project &rarr;</a>
+        </div>
+
+        <div class="card">
+          <h3>Project Two</h3>
+          <p>Highlight another build, simulation, CAD model, or prototype you created and how it works.</p>
+          <div>
+            <span class="tag">Design</span>
+            <span class="tag">Engineering</span>
+          </div>
+          <a href="#" target="_blank">View Project &rarr;</a>
+        </div>
+
+        <div class="card">
+          <h3>Project Three</h3>
+          <p>Share a third project or experiment, including any tools, hardware, or frameworks involved.</p>
+          <div>
+            <span class="tag">Electronics</span>
+            <span class="tag">Automation</span>
+          </div>
+          <a href="#" target="_blank">View Project &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills &amp; Tools</h2>
+      <div>
+        <span class="tag">HTML &amp; CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Git &amp; GitHub</span>
+        <span class="tag">CAD / 3D Modeling</span>
+        <span class="tag">Circuit Design</span>
+        <span class="tag">Problem Solving</span>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Want to collaborate or ask about my work? Reach me at
+        <a href="mailto:youremail@example.com" style="color: var(--accent);">youremail@example.com</a>
+        or connect on GitHub.
+      </p>
+    </section>
+
+    <footer>
+      &copy; <span id="year"></span> Your Name. Hosted on Render.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const toggle = document.getElementById("themeToggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      toggle.textContent = document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
+    });
+  </script>
+</body>
+</html>
