@@ -6,21 +6,31 @@
   <title>Joseph Kimani — Engineering &amp; Systems Portfolio</title>
   <style>
     :root {
-      /* Panels remain dark blue in both modes; Light Mode lightens backdrop & accent contrast */
-      --bg-overlay: rgba(219, 232, 255, 0.52);
-      --panel-surface: rgba(10, 22, 46, 0.92);
-      --panel-subtle: rgba(16, 34, 68, 0.94);
-      --panel-hover: rgba(14, 31, 64, 0.97);
-      --panel-text: #eef4ff;
-      --panel-muted: #b6c8e6;
-      --panel-accent: #38bdf8;
-      --panel-accent-glow: rgba(56, 189, 248, 0.18);
-      --panel-border: rgba(44, 82, 146, 0.85);
-      --panel-shadow: 0 16px 36px -10px rgba(2, 6, 18, 0.78);
+      /* Light Mode Palette */
+      --bg-overlay: rgba(238, 244, 255, 0.72);
+      --surface: rgba(248, 251, 255, 0.93);
+      --surface-subtle: rgba(230, 240, 255, 0.92);
+      --surface-hover: rgba(255, 255, 255, 0.98);
+      --text: #071326;
+      --muted: #334866;
+      --accent: #1d4ed8;
+      --accent-glow: rgba(29, 78, 216, 0.16);
+      --border: rgba(147, 180, 228, 0.85);
+      --shadow: 0 12px 30px -8px rgba(10, 25, 56, 0.16);
     }
 
     body.dark {
-      --bg-overlay: rgba(4, 10, 24, 0.64);
+      /* Default Dark Mode + Deep Navy / Dark Blue Surfaces */
+      --bg-overlay: rgba(4, 10, 24, 0.62);
+      --surface: rgba(10, 22, 46, 0.91);
+      --surface-subtle: rgba(16, 34, 68, 0.93);
+      --surface-hover: rgba(14, 30, 62, 0.96);
+      --text: #eef4ff;
+      --muted: #b6c8e6;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.18);
+      --border: rgba(44, 82, 146, 0.82);
+      --shadow: 0 16px 36px -10px rgba(2, 6, 18, 0.78);
     }
 
     *, *::before, *::after {
@@ -33,15 +43,15 @@
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: var(--panel-text);
+      color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
       position: relative;
-      transition: background 0.25s ease, color 0.25s ease;
+      transition: color 0.25s ease;
     }
 
     :focus-visible {
-      outline: 2px solid var(--panel-accent);
+      outline: 2px solid var(--accent);
       outline-offset: 2px;
     }
 
@@ -106,10 +116,10 @@
       gap: 0.75rem;
       padding: 0.72rem 1.15rem;
       margin-bottom: 2.5rem;
-      background: var(--panel-surface);
-      border: 1px solid var(--panel-border);
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 12px;
-      box-shadow: var(--panel-shadow);
+      box-shadow: var(--shadow);
       backdrop-filter: blur(12px);
     }
 
@@ -117,7 +127,7 @@
       font-weight: 700;
       font-size: 1rem;
       letter-spacing: -0.02em;
-      color: var(--panel-text);
+      color: var(--text);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -126,9 +136,9 @@
 
     .brand-tag {
       font-size: 0.72rem;
-      color: var(--panel-accent);
-      background: var(--panel-accent-glow);
-      border: 1px solid var(--panel-border);
+      color: var(--accent);
+      background: var(--accent-glow);
+      border: 1px solid var(--border);
       padding: 0.12rem 0.45rem;
       border-radius: 5px;
     }
@@ -141,19 +151,19 @@
     }
 
     .nav-group a {
-      color: var(--panel-muted);
+      color: var(--muted);
       text-decoration: none;
       font-size: 0.88rem;
       font-weight: 500;
       transition: color 0.15s ease;
     }
 
-    .nav-group a:hover { color: var(--panel-accent); }
+    .nav-group a:hover { color: var(--accent); }
 
     .theme-btn {
-      background: var(--panel-subtle);
-      color: var(--panel-text);
-      border: 1px solid var(--panel-border);
+      background: var(--surface-subtle);
+      color: var(--text);
+      border: 1px solid var(--border);
       padding: 0.34rem 0.75rem;
       border-radius: 7px;
       font-size: 0.8rem;
@@ -162,24 +172,18 @@
       transition: border-color 0.15s ease, background 0.15s ease;
     }
 
-    body:not(.dark) .theme-btn {
-      background: #e0ecff;
-      color: #071326;
-      border-color: #1d4ed8;
-    }
-
     .theme-btn:hover {
-      border-color: var(--panel-accent);
+      border-color: var(--accent);
     }
 
     /* Hero */
     .hero {
-      background: var(--panel-surface);
-      border: 1px solid var(--panel-border);
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 16px;
       padding: 2.2rem 1.85rem 1.65rem;
       margin-bottom: 2.6rem;
-      box-shadow: var(--panel-shadow);
+      box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
     }
 
@@ -189,9 +193,9 @@
       gap: 0.45rem;
       font-size: 0.78rem;
       font-weight: 600;
-      color: var(--panel-accent);
-      background: var(--panel-accent-glow);
-      border: 1px solid var(--panel-border);
+      color: var(--accent);
+      background: var(--accent-glow);
+      border: 1px solid var(--border);
       padding: 0.28rem 0.75rem;
       border-radius: 999px;
       margin-bottom: 1rem;
@@ -201,8 +205,8 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: var(--panel-accent);
-      box-shadow: 0 0 8px var(--panel-accent);
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
     }
 
     .hero h1 {
@@ -215,12 +219,12 @@
     .hero-role {
       font-size: 1.05rem;
       font-weight: 600;
-      color: var(--panel-accent);
+      color: var(--accent);
       margin-bottom: 0.85rem;
     }
 
     .hero p {
-      color: var(--panel-muted);
+      color: var(--muted);
       max-width: 690px;
       font-size: 0.97rem;
       margin-bottom: 1.5rem;
@@ -234,45 +238,50 @@
     }
 
     .btn-primary {
-      background: var(--panel-accent);
+      background: var(--accent);
       color: #041024;
       text-decoration: none;
       font-weight: 700;
       font-size: 0.89rem;
       padding: 0.6rem 1.15rem;
       border-radius: 8px;
-      border: 1px solid var(--panel-accent);
+      border: 1px solid var(--accent);
       cursor: pointer;
     }
 
+    body:not(.dark) .btn-primary {
+      color: #ffffff;
+    }
+
     .btn-ghost {
-      background: var(--panel-subtle);
-      color: var(--panel-text);
+      background: var(--surface-subtle);
+      color: var(--text);
       text-decoration: none;
       font-weight: 600;
       font-size: 0.89rem;
       padding: 0.6rem 1.1rem;
       border-radius: 8px;
-      border: 1px solid var(--panel-border);
+      border: 1px solid var(--border);
       cursor: pointer;
       transition: border-color 0.15s ease;
     }
 
     .btn-ghost:hover {
-      border-color: var(--panel-accent);
+      border-color: var(--accent);
     }
 
+    /* Workbench Telemetry Bar inside Hero */
     .telemetry-bar {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
       gap: 0.65rem;
       padding-top: 1.15rem;
-      border-top: 1px solid var(--panel-border);
+      border-top: 1px solid var(--border);
     }
 
     .telemetry-item {
-      background: var(--panel-subtle);
-      border: 1px solid var(--panel-border);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
       border-radius: 9px;
       padding: 0.55rem 0.8rem;
     }
@@ -281,16 +290,17 @@
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--panel-accent);
+      color: var(--accent);
       font-weight: 600;
     }
 
     .telemetry-val {
       font-size: 0.84rem;
       font-weight: 600;
-      color: var(--panel-text);
+      color: var(--text);
     }
 
+    /* Section Header & Filter Controls */
     section { margin-bottom: 2.6rem; }
 
     .section-header-row {
@@ -304,11 +314,11 @@
 
     .section-top {
       display: inline-block;
-      background: var(--panel-surface);
-      border: 1px solid var(--panel-border);
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 0.75rem 1.15rem;
-      box-shadow: var(--panel-shadow);
+      box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
     }
 
@@ -319,7 +329,7 @@
     }
 
     .section-top p {
-      color: var(--panel-muted);
+      color: var(--muted);
       font-size: 0.87rem;
     }
 
@@ -327,17 +337,17 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.45rem;
-      background: var(--panel-surface);
-      border: 1px solid var(--panel-border);
+      background: var(--surface);
+      border: 1px solid var(--border);
       padding: 0.45rem;
       border-radius: 11px;
-      box-shadow: var(--panel-shadow);
+      box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
     }
 
     .filter-btn {
       background: transparent;
-      color: var(--panel-muted);
+      color: var(--muted);
       border: 1px solid transparent;
       padding: 0.35rem 0.75rem;
       border-radius: 7px;
@@ -348,16 +358,17 @@
     }
 
     .filter-btn:hover {
-      color: var(--panel-text);
-      background: var(--panel-subtle);
+      color: var(--text);
+      background: var(--surface-subtle);
     }
 
     .filter-btn.active {
-      background: var(--panel-accent-glow);
-      color: var(--panel-accent);
-      border-color: var(--panel-accent);
+      background: var(--accent-glow);
+      color: var(--accent);
+      border-color: var(--accent);
     }
 
+    /* Cards & Grids */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
@@ -371,56 +382,16 @@
     }
 
     .card {
-      background: var(--panel-surface);
-      border: 1px solid var(--panel-border);
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 1.1rem;
-      box-shadow: var(--panel-shadow);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-    }
-
-    .project-card {
-      cursor: pointer;
-    }
-
-    .project-thumb-wrap {
-      position: relative;
-      width: 100%;
-      height: 150px;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 0.85rem;
-      border: 1px solid var(--panel-border);
-      background: var(--panel-subtle);
-    }
-
-    .project-thumb-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.25s ease;
-    }
-
-    .project-card:hover .project-thumb-wrap img {
-      transform: scale(1.04);
-    }
-
-    .photo-badge {
-      position: absolute;
-      bottom: 0.45rem;
-      right: 0.45rem;
-      background: rgba(4, 12, 28, 0.86);
-      color: var(--panel-accent);
-      border: 1px solid var(--panel-border);
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 0.18rem 0.5rem;
-      border-radius: 6px;
     }
 
     .card.hidden {
@@ -429,8 +400,8 @@
 
     .card:hover {
       transform: translateY(-2px);
-      border-color: var(--panel-accent);
-      background: var(--panel-hover);
+      border-color: var(--accent);
+      background: var(--surface-hover);
     }
 
     .card-top {
@@ -438,10 +409,10 @@
       justify-content: space-between;
       align-items: center;
       gap: 0.5rem;
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.5rem;
       font-size: 0.74rem;
       font-weight: 700;
-      color: var(--panel-accent);
+      color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -453,7 +424,7 @@
     }
 
     .card p {
-      color: var(--panel-muted);
+      color: var(--muted);
       font-size: 0.89rem;
       margin-bottom: 0.95rem;
     }
@@ -476,17 +447,17 @@
       font-weight: 500;
       padding: 0.2rem 0.55rem;
       border-radius: 6px;
-      background: var(--panel-subtle);
-      color: var(--panel-text);
-      border: 1px solid var(--panel-border);
+      background: var(--surface-subtle);
+      color: var(--text);
+      border: 1px solid var(--border);
     }
 
     .inspect-btn {
       align-self: flex-start;
-      background: var(--panel-accent-glow);
-      color: var(--panel-accent);
-      border: 1px solid var(--panel-border);
-      padding: 0.34rem 0.72rem;
+      background: var(--accent-glow);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      padding: 0.32rem 0.68rem;
       border-radius: 6px;
       font-size: 0.78rem;
       font-weight: 600;
@@ -495,20 +466,20 @@
     }
 
     .inspect-btn:hover {
-      border-color: var(--panel-accent);
+      border-color: var(--accent);
     }
 
     .panel {
-      background: var(--panel-surface);
-      border: 1px solid var(--panel-border);
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 14px;
       padding: 1.5rem;
-      box-shadow: var(--panel-shadow);
+      box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
     }
 
     .panel p {
-      color: var(--panel-muted);
+      color: var(--muted);
       font-size: 0.94rem;
       margin-bottom: 0.8rem;
     }
@@ -516,11 +487,11 @@
     .panel p:last-child { margin-bottom: 0; }
 
     .contact-card {
-      background: var(--panel-surface);
-      border: 1px solid var(--panel-border);
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 16px;
       padding: 1.75rem;
-      box-shadow: var(--panel-shadow);
+      box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
       display: flex;
       justify-content: space-between;
@@ -535,13 +506,13 @@
     }
 
     .contact-card p {
-      color: var(--panel-muted);
+      color: var(--muted);
       font-size: 0.92rem;
     }
 
     footer {
-      background: var(--panel-surface);
-      border: 1px solid var(--panel-border);
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 1rem 1.35rem;
       backdrop-filter: blur(10px);
@@ -550,22 +521,21 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 0.75rem;
-      color: var(--panel-muted);
+      color: var(--muted);
       font-size: 0.84rem;
     }
 
-    /* Project Photo Gallery & Technical Spec Modal */
+    /* Technical Spec Modal */
     .modal-backdrop {
       position: fixed;
       inset: 0;
       z-index: 50;
-      background: rgba(2, 8, 22, 0.82);
+      background: rgba(2, 8, 22, 0.78);
       backdrop-filter: blur(6px);
       display: none;
       align-items: center;
       justify-content: center;
       padding: 1.25rem;
-      overflow-y: auto;
     }
 
     .modal-backdrop.open {
@@ -573,15 +543,13 @@
     }
 
     .modal-box {
-      background: var(--panel-surface);
-      border: 1px solid var(--panel-accent);
+      background: var(--surface);
+      border: 1px solid var(--accent);
       border-radius: 16px;
-      max-width: 660px;
+      max-width: 560px;
       width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
       padding: 1.65rem;
-      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.75);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.65);
     }
 
     .modal-head {
@@ -597,7 +565,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--panel-accent);
+      color: var(--accent);
       margin-bottom: 0.2rem;
     }
 
@@ -607,9 +575,9 @@
     }
 
     .modal-close {
-      background: var(--panel-subtle);
-      color: var(--panel-text);
-      border: 1px solid var(--panel-border);
+      background: var(--surface-subtle);
+      color: var(--text);
+      border: 1px solid var(--border);
       border-radius: 7px;
       padding: 0.28rem 0.65rem;
       font-size: 0.85rem;
@@ -617,60 +585,8 @@
       cursor: pointer;
     }
 
-    .gallery-stage {
-      margin-bottom: 1rem;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--panel-border);
-      background: var(--panel-subtle);
-    }
-
-    .gallery-stage img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .gallery-caption {
-      padding: 0.5rem 0.75rem;
-      font-size: 0.8rem;
-      color: var(--panel-muted);
-      border-top: 1px solid var(--panel-border);
-    }
-
-    .gallery-thumbs {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.55rem;
-      margin-bottom: 1.1rem;
-    }
-
-    .thumb-btn {
-      padding: 0;
-      border: 2px solid var(--panel-border);
-      border-radius: 8px;
-      overflow: hidden;
-      background: var(--panel-subtle);
-      cursor: pointer;
-      height: 70px;
-      transition: border-color 0.15s ease, transform 0.15s ease;
-    }
-
-    .thumb-btn img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .thumb-btn.active {
-      border-color: var(--panel-accent);
-      transform: translateY(-1px);
-    }
-
     .modal-body p {
-      color: var(--panel-muted);
+      color: var(--muted);
       font-size: 0.92rem;
       margin-bottom: 1rem;
     }
@@ -679,19 +595,20 @@
       list-style: none;
       display: grid;
       gap: 0.55rem;
+      margin-bottom: 1.15rem;
     }
 
     .spec-list li {
-      background: var(--panel-subtle);
-      border: 1px solid var(--panel-border);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
       border-radius: 8px;
       padding: 0.55rem 0.8rem;
       font-size: 0.85rem;
-      color: var(--panel-text);
+      color: var(--text);
     }
 
     .spec-list strong {
-      color: var(--panel-accent);
+      color: var(--accent);
     }
   </style>
 </head>
@@ -732,6 +649,7 @@
         <button type="button" class="btn-ghost" id="copyEmail">Copy Email</button>
       </div>
 
+      <!-- Creative Workbench Telemetry Strip -->
       <div class="telemetry-bar">
         <div class="telemetry-item">
           <div class="telemetry-label">Primary Focus</div>
@@ -756,7 +674,7 @@
       <div class="section-header-row">
         <div class="section-top">
           <h2>Projects &amp; Builds</h2>
-          <p>Click any project card to view related photos and technical specs.</p>
+          <p>Filter by discipline or inspect technical specifications.</p>
         </div>
 
         <div class="filter-bar" role="group" aria-label="Filter projects by category">
@@ -768,12 +686,8 @@
       </div>
 
       <div class="projects-grid">
-        <article class="card project-card" data-category="hardware" data-project="0" tabindex="0">
+        <article class="card" data-category="hardware" data-project="0">
           <div>
-            <div class="project-thumb-wrap">
-              <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQmKzda50u6dN2NKAIsNO-4rm3ai4GFRZibAoilJP_CH9KLkTswS7xLQL8ACAwEeiSpxbYhX0AWzCIVAFg" alt="Power transistor and electronic switching component for TRIAC circuit" loading="lazy" />
-              <span class="photo-badge">3 Photos</span>
-            </div>
             <div class="card-top"><span>Hardware &amp; Power</span><span>01</span></div>
             <h3>TRIAC Automatic Street Light Controller</h3>
             <p>Built and tested an AC dusk-to-dawn lighting circuit using a BT136 TRIAC, LDR light sensor, and 100k&Omega; biasing network with multimeter diagnostics.</p>
@@ -784,16 +698,12 @@
               <span class="pill">LDR</span>
               <span class="pill">AC Switching</span>
             </div>
-            <button type="button" class="inspect-btn" data-inspect="0">View Related Photos &rarr;</button>
+            <button type="button" class="inspect-btn" data-inspect="0">Inspect Specs &rarr;</button>
           </div>
         </article>
 
-        <article class="card project-card" data-category="cad" data-project="1" tabindex="0">
+        <article class="card" data-category="cad" data-project="1">
           <div>
-            <div class="project-thumb-wrap">
-              <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcT1aYIxcUAcwjDblxwAJlTbwPmGwmmPGSFfXPwqPKs-sGUPfce-sCsqEWGVwOwbYFDPImIPFKvMQcQl3-o" alt="Scissor lift mechanical wireframe CAD concept" loading="lazy" />
-              <span class="photo-badge">3 Photos</span>
-            </div>
             <div class="card-top"><span>Mechanical CAD</span><span>02</span></div>
             <h3>Parametric Scissor Lift in FreeCAD</h3>
             <p>Modeled a multi-link scissor lift assembly in FreeCAD using Sketcher and Part Design workbenches with mechanical constraints and component clearances.</p>
@@ -804,16 +714,12 @@
               <span class="pill">CAD Assembly</span>
               <span class="pill">Mechanisms</span>
             </div>
-            <button type="button" class="inspect-btn" data-inspect="1">View Related Photos &rarr;</button>
+            <button type="button" class="inspect-btn" data-inspect="1">Inspect Specs &rarr;</button>
           </div>
         </article>
 
-        <article class="card project-card" data-category="hardware" data-project="2" tabindex="0">
+        <article class="card" data-category="hardware" data-project="2">
           <div>
-            <div class="project-thumb-wrap">
-              <img src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTmc01gtNH5_qg-StDuiWIHytM4QxA1hE4sRlj6R5TyPDsNRs65LN9d9cnPu6tYMIQaZzpmNh7E5Yi73xA" alt="Operational amplifier circuit schematic diagram" loading="lazy" />
-              <span class="photo-badge">3 Photos</span>
-            </div>
             <div class="card-top"><span>Analog &amp; Digital</span><span>03</span></div>
             <h3>Op-Amp Filters, Oscillators &amp; Logic</h3>
             <p>Worked through active filters, summing/integrator op-amp stages, Wien bridge oscillators, BJT biasing, RLC transients, and 2's complement digital logic.</p>
@@ -824,11 +730,400 @@
               <span class="pill">BJTs &amp; RLC</span>
               <span class="pill">Digital Logic</span>
             </div>
-            <button type="button" class="inspect-btn" data-inspect="2">View Related Photos &rarr;</button>
+            <button type="button" class="inspect-btn" data-inspect="2">Inspect Specs &rarr;</button>
           </div>
         </article>
 
-        <article class="card project-card" data-category="cad" data-project="3" tabindex="0">
+        <article class="card" data-category="cad" data-project="3">
           <div>
-            <div class="project-thumb-wrap">
-              <img src="
+            <div class="card-top"><span>Kinematics &amp; Mfg</span><span>04</span></div>
+            <h3>Planar Mechanisms &amp; Materials Study</h3>
+            <p>Analyzed velocity and motion in crank-and-slotted-lever and Scotch yoke mechanisms alongside CNC milling, machining, and steel heat-treatment processes.</p>
+          </div>
+          <div class="card-footer">
+            <div class="pill-list">
+              <span class="pill">Kinematics</span>
+              <span class="pill">CNC &amp; Machining</span>
+              <span class="pill">Heat Treatment</span>
+            </div>
+            <button type="button" class="inspect-btn" data-inspect="3">Inspect Specs &rarr;</button>
+          </div>
+        </article>
+
+        <article class="card" data-category="cad" data-project="4">
+          <div>
+            <div class="card-top"><span>3D Modeling</span><span>05</span></div>
+            <h3>3D Mechanical &amp; Asset Modeling in Blender</h3>
+            <p>Created 3D models and rendered forms in Blender to explore hard-surface geometry, proportions, and visual presentation for technical concepts.</p>
+          </div>
+          <div class="card-footer">
+            <div class="pill-list">
+              <span class="pill">Blender</span>
+              <span class="pill">3D Modeling</span>
+              <span class="pill">Rendering</span>
+            </div>
+            <button type="button" class="inspect-btn" data-inspect="4">Inspect Specs &rarr;</button>
+          </div>
+        </article>
+
+        <article class="card" data-category="analysis" data-project="5">
+          <div>
+            <div class="card-top"><span>Web &amp; Market Data</span><span>06</span></div>
+            <h3>Web Deployments &amp; XAU/USD Macro Tracking</h3>
+            <p>Deployed static web portfolios via GitHub and Render while tracking U.S. macro releases (CPI, PPI, NFP, FOMC) alongside technical price action on gold.</p>
+          </div>
+          <div class="card-footer">
+            <div class="pill-list">
+              <span class="pill">HTML / CSS / JS</span>
+              <span class="pill">Git &amp; Render</span>
+              <span class="pill">XAU/USD</span>
+            </div>
+            <button type="button" class="inspect-btn" data-inspect="5">Inspect Specs &rarr;</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-header-row">
+        <div class="section-top">
+          <h2>Skills &amp; Tools</h2>
+          <p>Core engineering, design, and software skills used across solo and shared builds.</p>
+        </div>
+      </div>
+      <div class="skills-grid">
+        <div class="card">
+          <div>
+            <div class="card-top"><span>CAD &amp; 3D</span></div>
+            <h3>Design &amp; Modeling</h3>
+            <p>Parametric modeling, mechanism geometry, and 3D visual assets.</p>
+          </div>
+          <div class="pill-list">
+            <span class="pill">FreeCAD</span>
+            <span class="pill">Blender</span>
+            <span class="pill">Kinematics</span>
+            <span class="pill">Materials Science</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="card-top"><span>Electronics</span></div>
+            <h3>Circuits &amp; Lab Testing</h3>
+            <p>Circuit design, power switching, and hands-on multimeter troubleshooting.</p>
+          </div>
+          <div class="pill-list">
+            <span class="pill">Analog Circuits</span>
+            <span class="pill">Digital Logic</span>
+            <span class="pill">TRIAC / AC</span>
+            <span class="pill">Diagnostics</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="card-top"><span>Software &amp; Web</span></div>
+            <h3>Code &amp; Deployment</h3>
+            <p>Responsive static websites, source control, and continuous cloud deploys.</p>
+          </div>
+          <div class="pill-list">
+            <span class="pill">HTML</span>
+            <span class="pill">CSS</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">GitHub &amp; Render</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="card-top"><span>Analysis</span></div>
+            <h3>Math &amp; Systems</h3>
+            <p>Multivariable calculus, dynamic systems, and structured market analysis.</p>
+          </div>
+          <div class="pill-list">
+            <span class="pill">Calculus III</span>
+            <span class="pill">Control &amp; RLC</span>
+            <span class="pill">Technical Analysis</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-header-row">
+        <div class="section-top">
+          <h2>About</h2>
+          <p>Engineering student in Kenya focused on practical execution and first-principles clarity.</p>
+        </div>
+      </div>
+      <div class="panel">
+        <p>
+          I'm <strong>Joseph Kimani</strong>, studying engineering across mechanical, electrical, and mechatronics topics while building real circuits, CAD assemblies, and web projects. I like breaking complex problems down step by step—whether debugging a physical circuit on the bench, working through multi-variable math and mechanism kinematics, or structuring a clean web layout.
+        </p>
+        <p>
+          I also collaborate closely on technical projects and skill-sharing, combining hardware and software workflows with disciplined analytical habits.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-card">
+        <div>
+          <h3>Get in Touch</h3>
+          <p>Reach out directly at <code class="mono">keemanijoseph@gmail.com</code> for projects, builds, or collaborations.</p>
+        </div>
+        <div class="cta-row">
+          <a href="mailto:keemanijoseph@gmail.com" class="btn-primary">Send Email</a>
+          <a href="https://github.com/itskym736-creator" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>&copy; <span id="year"></span> Joseph Kimani &bull; keemanijoseph@gmail.com</div>
+      <div class="mono" id="slideCounter">Backdrop 1/10 (25s)</div>
+    </footer>
+  </div>
+
+  <!-- Technical Spec Modal -->
+  <div class="modal-backdrop" id="specModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <div class="modal-head">
+        <div>
+          <div class="modal-kicker" id="modalKicker">Hardware &amp; Power</div>
+          <h3 class="modal-title" id="modalTitle">Project Title</h3>
+        </div>
+        <button type="button" class="modal-close" id="closeModal" aria-label="Close modal">ESC</button>
+      </div>
+      <div class="modal-body">
+        <p id="modalSummary"></p>
+        <ul class="spec-list" id="modalSpecs"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme Setup: Defaults to Dark Mode, persists user toggle
+    const themeBtn = document.getElementById("themeToggle");
+    const savedTheme = localStorage.getItem("jk_portfolio_theme");
+
+    if (savedTheme === "light") {
+      document.body.classList.remove("dark");
+      themeBtn.setAttribute("aria-pressed", "false");
+      themeBtn.textContent = "Dark Mode";
+    } else {
+      document.body.classList.add("dark");
+      themeBtn.setAttribute("aria-pressed", "true");
+      themeBtn.textContent = "Light Mode";
+    }
+
+    themeBtn.addEventListener("click", () => {
+      const isDark = document.body.classList.toggle("dark");
+      localStorage.setItem("jk_portfolio_theme", isDark ? "dark" : "light");
+      themeBtn.setAttribute("aria-pressed", String(isDark));
+      themeBtn.textContent = isDark ? "Light Mode" : "Dark Mode";
+    });
+
+    // Copy Email with Fallback
+    const copyBtn = document.getElementById("copyEmail");
+    const emailAddr = "keemanijoseph@gmail.com";
+
+    function copyTextFallback(text) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+        return true;
+      } catch {
+        return false;
+      } finally {
+        document.body.removeChild(ta);
+      }
+    }
+
+    copyBtn.addEventListener("click", async () => {
+      let copied = false;
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(emailAddr);
+          copied = true;
+        } catch {
+          copied = copyTextFallback(emailAddr);
+        }
+      } else {
+        copied = copyTextFallback(emailAddr);
+      }
+
+      if (copied) {
+        const prev = copyBtn.textContent;
+        copyBtn.textContent = "Copied!";
+        setTimeout(() => { copyBtn.textContent = prev; }, 2000);
+      }
+    });
+
+    // Category Filtering
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".projects-grid .card");
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const target = btn.dataset.filter;
+        projectCards.forEach((card) => {
+          const match = target === "all" || card.dataset.category === target;
+          card.classList.toggle("hidden", !match);
+        });
+      });
+    });
+
+    // Project Technical Inspection Modal
+    const projectSpecs = [
+      {
+        kicker: "01 // Hardware & Power",
+        title: "TRIAC Automatic Street Light Controller",
+        summary: "Solid-state AC switching controller designed to energize outdoor lighting automatically at dusk without mechanical relay wear.",
+        specs: [
+          "<strong>Core Components:</strong> BT136 TRIAC, Cadmium-Sulfide LDR, 100k&Omega; gate biasing resistor network.",
+          "<strong>Diagnostics:</strong> Verified gate trigger thresholds, voltage divider response under ambient light shifts, and load continuity via multimeter.",
+          "<strong>Key Takeaway:</strong> Proper gate resistor sizing prevents false triggering during twilight transitions."
+        ]
+      },
+      {
+        kicker: "02 // Mechanical CAD",
+        title: "Parametric Scissor Lift in FreeCAD",
+        summary: "Multi-stage vertical lifting mechanism built with parametric sketches so arm lengths and pivot clearances update cleanly.",
+        specs: [
+          "<strong>Workbenches:</strong> FreeCAD Sketcher, Part Design, and assembly constraint workflows.",
+          "<strong>Engineering Focus:</strong> Pin-joint tolerances, stroke-to-actuator ratio, and interference checks across full extension and retraction.",
+          "<strong>Key Takeaway:</strong> Constraining geometry around shared master dimensions eliminates broken dependencies during edits."
+        ]
+      },
+      {
+        kicker: "03 // Analog & Digital",
+        title: "Op-Amp Filters, Oscillators & Logic",
+        summary: "Hands-on circuit analysis and breadboard validation spanning continuous-time analog stages and binary arithmetic blocks.",
+        specs: [
+          "<strong>Analog Stages:</strong> Active low/high-pass filters, summing amplifiers, integrators, and Wien bridge sine oscillators.",
+          "<strong>Transistors & Transients:</strong> BJT DC bias stabilization and underdamped/overdamped RLC step response.",
+          "<strong>Digital Systems:</strong> Signed 2's complement arithmetic and combinational logic gate minimization."
+        ]
+      },
+      {
+        kicker: "04 // Kinematics & Manufacturing",
+        title: "Planar Mechanisms & Materials Study",
+        summary: "Graphical and analytical kinematics paired with workshop machining and ferrous heat-treatment metallurgy.",
+        specs: [
+          "<strong>Mechanisms:</strong> Velocity/acceleration polygon analysis for crank-and-slotted-lever quick-return and Scotch yoke linkages.",
+          "<strong>Manufacturing:</strong> CNC milling toolpath considerations, turning operations, and dimensional tolerancing.",
+          "<strong>Materials:</strong> Annealing, normalizing, quenching, and tempering effects on carbon steel microstructure."
+        ]
+      },
+      {
+        kicker: "05 // 3D Modeling",
+        title: "3D Mechanical & Asset Modeling in Blender",
+        summary: "Subdivision and hard-surface modeling workflows to communicate mechanical form, lighting, and assembly concepts visually.",
+        specs: [
+          "<strong>Modeling Tools:</strong> Bevel workflows, boolean cleanup, edge-flow control, and proportional scaling.",
+          "<strong>Presentation:</strong> Studio lighting setups and PBR material shaders for clean technical renders.",
+          "<strong>Key Takeaway:</strong> Combining parametric CAD accuracy with Blender rendering bridges engineering and visual storytelling."
+        ]
+      },
+      {
+        kicker: "06 // Web & Market Data",
+        title: "Web Deployments & XAU/USD Macro Tracking",
+        summary: "Fast, zero-framework web publishing workflows combined with structured macroeconomic event tracking.",
+        specs: [
+          "<strong>Web Stack:</strong> Semantic HTML5, responsive CSS Grid, vanilla JavaScript, and GitHub-to-Render continuous deployment.",
+          "<strong>Macro Calendar:</strong> Tracking U.S. CPI, PPI, NFP, and FOMC rate decisions against Treasury yields and DXY.",
+          "<strong>Technical Workflow:</strong> Multi-timeframe structure mapping and disciplined risk journaling on XAU/USD."
+        ]
+      }
+    ];
+
+    const specModal = document.getElementById("specModal");
+    const modalKicker = document.getElementById("modalKicker");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalSummary = document.getElementById("modalSummary");
+    const modalSpecs = document.getElementById("modalSpecs");
+    const closeModalBtn = document.getElementById("closeModal");
+    let lastFocusedEl = null;
+
+    document.querySelectorAll(".inspect-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const data = projectSpecs[Number(btn.dataset.inspect)];
+        if (!data) return;
+
+        lastFocusedEl = btn;
+        modalKicker.textContent = data.kicker;
+        modalTitle.textContent = data.title;
+        modalSummary.textContent = data.summary;
+        modalSpecs.innerHTML = data.specs.map((item) => `<li>${item}</li>`).join("");
+
+        specModal.classList.add("open");
+        closeModalBtn.focus();
+      });
+    });
+
+    function closeModal() {
+      specModal.classList.remove("open");
+      if (lastFocusedEl) lastFocusedEl.focus();
+    }
+
+    closeModalBtn.addEventListener("click", closeModal);
+    specModal.addEventListener("click", (e) => {
+      if (e.target === specModal) closeModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && specModal.classList.contains("open")) {
+        closeModal();
+      }
+    });
+
+    // 10 Engineering Background Photos rotating every 25 seconds
+    const engineeringPhotos = [
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=1920&q=80"
+    ];
+
+    const slideshow = document.getElementById("bgSlideshow");
+    const counter = document.getElementById("slideCounter");
+    let idx = 0;
+
+    engineeringPhotos.forEach((src, i) => {
+      const slide = document.createElement("div");
+      slide.className = i === 0 ? "bg-slide active" : "bg-slide";
+      slide.style.backgroundImage = `url('${src}')`;
+      slideshow.appendChild(slide);
+    });
+
+    const slideNodes = document.querySelectorAll(".bg-slide");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!prefersReducedMotion) {
+      setInterval(() => {
+        slideNodes[idx].classList.remove("active");
+        idx = (idx + 1) % slideNodes.length;
+        slideNodes[idx].classList.add("active");
+        counter.textContent = `Backdrop ${idx + 1}/10 (25s)`;
+      }, 25000);
+    }
+  </script>
+</body>
+</html>
