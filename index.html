@@ -6,33 +6,27 @@
   <title>Joseph Kimani — Engineering &amp; Systems Portfolio</title>
   <style>
     :root {
-      --bg-overlay: rgba(244, 246, 250, 0.52);
+      --bg-overlay: rgba(244, 246, 250, 0.62);
       --surface: rgba(255, 255, 255, 0.92);
-      --surface-solid: #ffffff;
-      --surface-subtle: rgba(241, 245, 249, 0.95);
+      --surface-subtle: rgba(241, 245, 249, 0.9);
       --text: #090d16;
       --muted: #374151;
       --accent: #1d4ed8;
-      --accent-soft: rgba(29, 78, 216, 0.14);
+      --accent-soft: rgba(29, 78, 216, 0.12);
       --border: rgba(203, 213, 225, 0.95);
-      --shadow: 0 10px 28px -8px rgba(15, 23, 42, 0.2);
-      --success: #059669;
-      --warning: #d97706;
+      --shadow: 0 10px 28px -8px rgba(15, 23, 42, 0.16);
     }
 
     body.dark {
-      --bg-overlay: rgba(8, 12, 22, 0.45);
-      --surface: rgba(13, 18, 28, 0.9);
-      --surface-solid: #0f1522;
-      --surface-subtle: rgba(23, 31, 46, 0.95);
+      --bg-overlay: rgba(8, 11, 18, 0.56);
+      --surface: rgba(13, 18, 28, 0.91);
+      --surface-subtle: rgba(23, 31, 46, 0.92);
       --text: #f3f4f6;
       --muted: #cbd5e1;
       --accent: #3b82f6;
-      --accent-soft: rgba(59, 130, 246, 0.2);
-      --border: rgba(71, 85, 105, 0.9);
-      --shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.7);
-      --success: #10b981;
-      --warning: #f59e0b;
+      --accent-soft: rgba(59, 130, 246, 0.18);
+      --border: rgba(51, 65, 85, 0.9);
+      --shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.65);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,7 +38,6 @@
       line-height: 1.6;
       min-height: 100vh;
       position: relative;
-      background: transparent;
       transition: color 0.25s ease;
     }
 
@@ -52,14 +45,13 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
-    /* 10-Photo Engineering Background Slideshow (rotates every 25 seconds) */
+    /* 10-Photo Engineering Background Slideshow (25s interval, crisp & visible) */
     .bg-slideshow {
       position: fixed;
       inset: 0;
-      z-index: 0;
-      pointer-events: none;
+      z-index: -2;
       overflow: hidden;
-      background-color: #0b1120;
+      background: #080b12;
     }
 
     .bg-slide {
@@ -67,11 +59,10 @@
       inset: 0;
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
-      filter: brightness(1.08) contrast(1.05);
+      filter: brightness(1.12) contrast(1.04);
       opacity: 0;
       transform: scale(1.03);
-      transition: opacity 1.5s ease-in-out, transform 25s linear;
+      transition: opacity 1.8s ease-in-out, transform 25s linear;
     }
 
     .bg-slide.active {
@@ -82,21 +73,18 @@
     .bg-overlay {
       position: fixed;
       inset: 0;
-      z-index: 1;
-      pointer-events: none;
+      z-index: -1;
       background: var(--bg-overlay);
       transition: background 0.25s ease;
     }
 
     .container {
-      position: relative;
-      z-index: 2;
-      max-width: 940px;
+      max-width: 920px;
       margin: 0 auto;
       padding: 1.5rem 1.25rem 4rem;
     }
 
-    /* Navigation */
+    /* Top Bar */
     nav {
       position: sticky;
       top: 1rem;
@@ -197,7 +185,7 @@
 
     .hero p {
       color: var(--muted);
-      max-width: 700px;
+      max-width: 680px;
       font-size: 0.98rem;
       margin-bottom: 1.6rem;
     }
@@ -217,10 +205,6 @@
       padding: 0.6rem 1.15rem;
       border-radius: 8px;
       border: 1px solid var(--accent);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
     }
 
     .btn-ghost {
@@ -233,11 +217,9 @@
       border-radius: 8px;
       border: 1px solid var(--border);
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
     }
 
+    /* Section Header Pill for readability over brighter photos */
     section { margin-bottom: 2.75rem; }
 
     .section-top {
@@ -262,9 +244,10 @@
       font-size: 0.88rem;
     }
 
+    /* Cards & Grids */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 1rem;
     }
 
@@ -287,10 +270,8 @@
       transition: transform 0.18s ease, border-color 0.18s ease;
     }
 
-    .project-card { cursor: pointer; }
-
     .card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       border-color: var(--accent);
     }
 
@@ -323,7 +304,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.35rem;
-      margin-bottom: 0.9rem;
+      margin-top: auto;
     }
 
     .pill {
@@ -336,28 +317,13 @@
       border: 1px solid var(--border);
     }
 
-    .card-footer-action {
-      margin-top: auto;
-      padding-top: 0.7rem;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    .panel, .contact-card, footer {
+    .panel {
       background: var(--surface);
       border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
-    }
-
-    .panel {
       border-radius: 14px;
       padding: 1.5rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
     }
 
     .panel p {
@@ -369,8 +335,12 @@
     .panel p:last-child { margin-bottom: 0; }
 
     .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 16px;
       padding: 1.75rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -389,8 +359,11 @@
     }
 
     footer {
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 1rem 1.35rem;
+      backdrop-filter: blur(8px);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -399,202 +372,11 @@
       color: var(--muted);
       font-size: 0.84rem;
     }
-
-    .slide-controls {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .mini-btn {
-      background: var(--surface-subtle);
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 0.22rem 0.55rem;
-      font-size: 0.76rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    /* Interactive Project Modal */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      background: rgba(5, 8, 15, 0.8);
-      backdrop-filter: blur(6px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
-
-    .modal-backdrop.open { display: flex; }
-
-    .modal-box {
-      background: var(--surface-solid);
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      max-width: 780px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 1.75rem;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-      padding-bottom: 1rem;
-      margin-bottom: 1.25rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .modal-close {
-      background: var(--surface-subtle);
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.35rem 0.75rem;
-      font-weight: 700;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-
-    .modal-section { margin-bottom: 1.35rem; }
-
-    .modal-section h4 {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-
-    .sim-box {
-      background: var(--surface-subtle);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.15rem;
-    }
-
-    .sim-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 0.85rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .sim-field label {
-      display: block;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--muted);
-      margin-bottom: 0.3rem;
-    }
-
-    .sim-field input[type="range"],
-    .sim-field input[type="number"] {
-      width: 100%;
-      padding: 0.4rem 0.55rem;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      background: var(--surface-solid);
-      color: var(--text);
-      font-size: 0.9rem;
-    }
-
-    .sim-output {
-      padding: 0.75rem 0.9rem;
-      border-radius: 8px;
-      background: var(--surface-solid);
-      border: 1px solid var(--border);
-      font-size: 0.9rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.5rem;
-      align-items: center;
-    }
-
-    .badge-on {
-      background: rgba(16, 185, 129, 0.16);
-      color: var(--success);
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 0.8rem;
-    }
-
-    .badge-off {
-      background: rgba(245, 158, 11, 0.16);
-      color: var(--warning);
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 0.8rem;
-    }
-
-    .screenshot-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 0.85rem;
-    }
-
-    .shot-card {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      background: var(--surface-subtle);
-    }
-
-    .shot-card img {
-      width: 100%;
-      height: 165px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .shot-caption {
-      padding: 0.55rem 0.75rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .canvas-wrap {
-      width: 100%;
-      height: 230px;
-      background: #070b14;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      position: relative;
-      overflow: hidden;
-      cursor: grab;
-    }
-
-    .canvas-wrap:active { cursor: grabbing; }
-
-    .canvas-hint {
-      position: absolute;
-      bottom: 8px;
-      right: 10px;
-      font-size: 0.75rem;
-      color: #94a3b8;
-      background: rgba(15, 23, 42, 0.75);
-      padding: 0.2rem 0.5rem;
-      border-radius: 5px;
-      pointer-events: none;
-    }
   </style>
 </head>
 <body class="dark">
 
-  <!-- 10 Engineering Background Photos (rotates every 25 seconds) -->
+  <!-- 10 Engineering Background Photos (changes every 25 seconds) -->
   <div class="bg-slideshow" id="bgSlideshow" aria-hidden="true"></div>
   <div class="bg-overlay" aria-hidden="true"></div>
 
@@ -613,15 +395,15 @@
     <header class="hero">
       <div class="status-pill">
         <span class="status-dot"></span>
-        <span>Engineering &bull; CAD &amp; 3D Modeling &bull; Circuits &bull; Web</span>
+        <span>Engineering &bull; Hardware &bull; CAD &bull; Web</span>
       </div>
       <h1>Joseph Kimani</h1>
       <div class="hero-role">Mechatronics, Mechanical &amp; Electrical Systems Builder</div>
       <p>
-        I build hands-on electronic circuits, CAD &amp; 3D models, mechanical assemblies, and web tools—grounded in first-principles engineering analysis and collaborative problem-solving. <strong>Click any project card below to view project photos and test its interactive simulator.</strong>
+        I build hands-on electronic circuits, parametric CAD mechanisms, 3D models, and clean web tools—grounded in first-principles engineering analysis and collaborative problem-solving.
       </p>
       <div class="cta-row">
-        <a href="#projects" class="btn-primary">Open Interactive Projects</a>
+        <a href="#projects" class="btn-primary">View Projects</a>
         <a href="mailto:keemanijoseph@gmail.com" class="btn-ghost">keemanijoseph@gmail.com</a>
         <button class="btn-ghost" id="copyEmail">Copy Email</button>
       </div>
@@ -629,109 +411,85 @@
 
     <section id="projects">
       <div class="section-top">
-        <h2>Interactive Projects &amp; Engineering Lab</h2>
-        <p>Click any card to view project photos (like CAD modeling &amp; circuits) and test interactive simulations.</p>
+        <h2>Projects &amp; Builds</h2>
+        <p>Practical prototypes, CAD assemblies, circuit systems, and technical work.</p>
       </div>
       <div class="projects-grid">
-        <article class="card project-card" data-project="cad">
+        <article class="card">
           <div>
-            <div class="card-top"><span>CAD &amp; 3D Modeling</span><span>01</span></div>
-            <h3>CAD Modeling &amp; Parametric Assemblies</h3>
-            <p>3D CAD modeling, FreeCAD assemblies, mechanism clearances, and lift kinematics—view CAD modeling photos and test elevation height &amp; link geometry.</p>
-            <div class="pill-list">
-              <span class="pill">CAD Modeling</span>
-              <span class="pill">FreeCAD</span>
-              <span class="pill">3D Assemblies</span>
-            </div>
+            <div class="card-top"><span>Hardware &amp; Power</span><span>01</span></div>
+            <h3>TRIAC Automatic Street Light Controller</h3>
+            <p>Built and tested an AC dusk-to-dawn lighting circuit using a BT136 TRIAC, LDR light sensor, and 100k&Omega; biasing network with multimeter diagnostics.</p>
           </div>
-          <div class="card-footer-action">
-            <span>View CAD Photos &amp; Sim</span>
-            <span>&rarr;</span>
+          <div class="pill-list">
+            <span class="pill">BT136 TRIAC</span>
+            <span class="pill">LDR</span>
+            <span class="pill">AC Switching</span>
           </div>
         </article>
 
-        <article class="card project-card" data-project="triac">
+        <article class="card">
           <div>
-            <div class="card-top"><span>Circuits &amp; Power</span><span>02</span></div>
-            <h3>TRIAC Automatic Street Light Circuit</h3>
-            <p>AC dusk-to-dawn lighting circuit using a BT136 TRIAC, LDR light sensor, and 100k&Omega; biasing network—view circuit photos and simulate gate triggering.</p>
-            <div class="pill-list">
-              <span class="pill">Circuits</span>
-              <span class="pill">BT136 TRIAC</span>
-              <span class="pill">LDR Sensor</span>
-            </div>
+            <div class="card-top"><span>Mechanical CAD</span><span>02</span></div>
+            <h3>Parametric Scissor Lift in FreeCAD</h3>
+            <p>Modeled a multi-link scissor lift assembly in FreeCAD using Sketcher and Part Design workbenches with mechanical constraints and component clearances.</p>
           </div>
-          <div class="card-footer-action">
-            <span>View Circuit Photos &amp; Sim</span>
-            <span>&rarr;</span>
+          <div class="pill-list">
+            <span class="pill">FreeCAD</span>
+            <span class="pill">CAD Assembly</span>
+            <span class="pill">Mechanisms</span>
           </div>
         </article>
 
-        <article class="card project-card" data-project="analog">
+        <article class="card">
           <div>
-            <div class="card-top"><span>Analog &amp; Digital Circuits</span><span>03</span></div>
+            <div class="card-top"><span>Analog &amp; Digital</span><span>03</span></div>
             <h3>Op-Amp Filters, Oscillators &amp; Logic</h3>
-            <p>Active RC low-pass filters, summing/integrator op-amp stages, Wien bridge oscillators, BJT amplifiers, RLC transients, and 2's complement digital arithmetic.</p>
-            <div class="pill-list">
-              <span class="pill">Op-Amps</span>
-              <span class="pill">2's Complement</span>
-              <span class="pill">RLC &amp; Logic</span>
-            </div>
+            <p>Worked through active filters, summing/integrator op-amp stages, Wien bridge oscillators, BJT biasing, RLC transients, and 2's complement digital logic.</p>
           </div>
-          <div class="card-footer-action">
-            <span>View Photos &amp; Filter/Logic Lab</span>
-            <span>&rarr;</span>
+          <div class="pill-list">
+            <span class="pill">Op-Amps</span>
+            <span class="pill">BJTs &amp; RLC</span>
+            <span class="pill">Digital Logic</span>
           </div>
         </article>
 
-        <article class="card project-card" data-project="kinematics">
+        <article class="card">
           <div>
-            <div class="card-top"><span>Planar Mechanics</span><span>04</span></div>
-            <h3>Scotch Yoke &amp; Crank-Slider Kinematics</h3>
-            <p>Instantaneous displacement, velocity, and acceleration in crank-and-slotted-lever and Scotch yoke mechanisms alongside CNC machining and heat treatment.</p>
-            <div class="pill-list">
-              <span class="pill">Kinematics</span>
-              <span class="pill">CNC &amp; Machining</span>
-              <span class="pill">Materials</span>
-            </div>
+            <div class="card-top"><span>Kinematics &amp; Mfg</span><span>04</span></div>
+            <h3>Planar Mechanisms &amp; Materials Study</h3>
+            <p>Analyzed velocity and motion in crank-and-slotted-lever and Scotch yoke mechanisms alongside CNC milling, machining, and steel heat-treatment processes.</p>
           </div>
-          <div class="card-footer-action">
-            <span>View Photos &amp; Motion Sim</span>
-            <span>&rarr;</span>
+          <div class="pill-list">
+            <span class="pill">Kinematics</span>
+            <span class="pill">CNC &amp; Machining</span>
+            <span class="pill">Heat Treatment</span>
           </div>
         </article>
 
-        <article class="card project-card" data-project="blender">
+        <article class="card">
           <div>
-            <div class="card-top"><span>3D Mesh &amp; Visualization</span><span>05</span></div>
-            <h3>3D Mechanical &amp; Product Modeling</h3>
-            <p>Hard-surface 3D modeling and visual geometry in Blender—inspect an interactive 3D gear-ring mesh and browse 3D design &amp; modeling photos.</p>
-            <div class="pill-list">
-              <span class="pill">3D Modeling</span>
-              <span class="pill">Blender</span>
-              <span class="pill">3D Viewport</span>
-            </div>
+            <div class="card-top"><span>3D Modeling</span><span>05</span></div>
+            <h3>3D Mechanical &amp; Asset Modeling in Blender</h3>
+            <p>Created 3D models and rendered forms in Blender to explore hard-surface geometry, proportions, and visual presentation for technical concepts.</p>
           </div>
-          <div class="card-footer-action">
-            <span>View 3D Photos &amp; Orbit Mesh</span>
-            <span>&rarr;</span>
+          <div class="pill-list">
+            <span class="pill">Blender</span>
+            <span class="pill">3D Modeling</span>
+            <span class="pill">Rendering</span>
           </div>
         </article>
 
-        <article class="card project-card" data-project="quant">
+        <article class="card">
           <div>
             <div class="card-top"><span>Web &amp; Market Data</span><span>06</span></div>
-            <h3>Web Deployments &amp; XAU/USD Macro Tracker</h3>
-            <p>Static web deployments via GitHub and Render paired with U.S. macro event tracking (CPI, PPI, NFP, FOMC) and technical price structure on XAU/USD.</p>
-            <div class="pill-list">
-              <span class="pill">HTML / CSS / JS</span>
-              <span class="pill">Render Cloud</span>
-              <span class="pill">XAU/USD</span>
-            </div>
+            <h3>Web Deployments &amp; XAU/USD Macro Tracking</h3>
+            <p>Deployed static web portfolios via GitHub and Render while tracking U.S. macro releases (CPI, PPI, NFP, FOMC) alongside technical price action on gold.</p>
           </div>
-          <div class="card-footer-action">
-            <span>Open Position Calc &amp; Repo</span>
-            <span>&rarr;</span>
+          <div class="pill-list">
+            <span class="pill">HTML / CSS / JS</span>
+            <span class="pill">Git &amp; Render</span>
+            <span class="pill">XAU/USD</span>
           </div>
         </article>
       </div>
@@ -740,32 +498,32 @@
     <section id="skills">
       <div class="section-top">
         <h2>Skills &amp; Tools</h2>
-        <p>Core engineering, CAD/3D modeling, circuit, and software skills across solo and shared builds.</p>
+        <p>Core engineering, design, and software skills used across solo and shared builds.</p>
       </div>
       <div class="skills-grid">
         <div class="card">
           <div>
-            <div class="card-top"><span>CAD &amp; 3D Modeling</span></div>
-            <h3>Design &amp; CAD</h3>
-            <p>3D CAD modeling, parametric parts, mechanism geometry, and visual models.</p>
+            <div class="card-top"><span>CAD &amp; 3D</span></div>
+            <h3>Design &amp; Modeling</h3>
+            <p>Parametric modeling, mechanism geometry, and 3D visual assets.</p>
           </div>
           <div class="pill-list">
-            <span class="pill">CAD Modeling</span>
             <span class="pill">FreeCAD</span>
             <span class="pill">Blender</span>
             <span class="pill">Kinematics</span>
+            <span class="pill">Materials Science</span>
           </div>
         </div>
 
         <div class="card">
           <div>
-            <div class="card-top"><span>Circuits &amp; Power</span></div>
-            <h3>Electronic Circuits</h3>
-            <p>Analog/digital circuits, AC power switching, and multimeter diagnostics.</p>
+            <div class="card-top"><span>Electronics</span></div>
+            <h3>Circuits &amp; Lab Testing</h3>
+            <p>Circuit design, power switching, and hands-on multimeter troubleshooting.</p>
           </div>
           <div class="pill-list">
-            <span class="pill">Circuit Design</span>
-            <span class="pill">Analog &amp; Digital</span>
+            <span class="pill">Analog Circuits</span>
+            <span class="pill">Digital Logic</span>
             <span class="pill">TRIAC / AC</span>
             <span class="pill">Diagnostics</span>
           </div>
@@ -789,4 +547,102 @@
           <div>
             <div class="card-top"><span>Analysis</span></div>
             <h3>Math &amp; Systems</h3>
-            <p>Multivariable calculus
+            <p>Multivariable calculus, dynamic systems, and structured market analysis.</p>
+          </div>
+          <div class="pill-list">
+            <span class="pill">Calculus III</span>
+            <span class="pill">Control &amp; RLC</span>
+            <span class="pill">Technical Analysis</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-top">
+        <h2>About</h2>
+        <p>Engineering student in Kenya focused on practical execution and first-principles clarity.</p>
+      </div>
+      <div class="panel">
+        <p>
+          I'm <strong>Joseph Kimani</strong>, studying engineering across mechanical, electrical, and mechatronics topics while building real circuits, CAD assemblies, and web projects. I like breaking complex problems down step by step—whether debugging a physical circuit on the bench, working through multi-variable math and mechanism kinematics, or structuring a clean web layout.
+        </p>
+        <p>
+          I also collaborate closely on technical projects and skill-sharing, combining hardware and software workflows with disciplined analytical habits.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-card">
+        <div>
+          <h3>Get in Touch</h3>
+          <p>Reach out directly at <code class="mono">keemanijoseph@gmail.com</code> for projects, builds, or collaborations.</p>
+        </div>
+        <div class="cta-row">
+          <a href="mailto:keemanijoseph@gmail.com" class="btn-primary">Send Email</a>
+          <a href="https://github.com/itskym736-creator" target="_blank" rel="noopener" class="btn-ghost">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>&copy; <span id="year"></span> Joseph Kimani &bull; keemanijoseph@gmail.com</div>
+      <div class="mono" id="slideCounter">Backdrop 1/10 (25s)</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const themeBtn = document.getElementById("themeToggle");
+    themeBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      themeBtn.textContent = document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
+    });
+
+    const copyBtn = document.getElementById("copyEmail");
+    copyBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText("keemanijoseph@gmail.com").then(() => {
+        const prev = copyBtn.textContent;
+        copyBtn.textContent = "Copied!";
+        setTimeout(() => { copyBtn.textContent = prev; }, 2000);
+      });
+    });
+
+    // 10 Engineering Background Photos rotating every 25 seconds
+    const engineeringPhotos = [
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=1920&q=80"
+    ];
+
+    const slideshow = document.getElementById("bgSlideshow");
+    const counter = document.getElementById("slideCounter");
+    let idx = 0;
+
+    engineeringPhotos.forEach((src, i) => {
+      const slide = document.createElement("div");
+      slide.className = i === 0 ? "bg-slide active" : "bg-slide";
+      slide.style.backgroundImage = `url('${src}')`;
+      slideshow.appendChild(slide);
+    });
+
+    const slideNodes = document.querySelectorAll(".bg-slide");
+
+    setInterval(() => {
+      slideNodes[idx].classList.remove("active");
+      idx = (idx + 1) % slideNodes.length;
+      slideNodes[idx].classList.add("active");
+      counter.textContent = `Backdrop ${idx + 1}/10 (25s)`;
+    }, 25000);
+  </script>
+</body>
+</html>
