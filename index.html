@@ -6,31 +6,31 @@
   <title>Joseph Kimani — Engineering &amp; Systems Portfolio</title>
   <style>
     :root {
-      --bg-overlay: rgba(244, 246, 250, 0.62);
-      --surface: rgba(255, 255, 255, 0.93);
+      --bg-overlay: rgba(244, 246, 250, 0.52);
+      --surface: rgba(255, 255, 255, 0.92);
       --surface-solid: #ffffff;
       --surface-subtle: rgba(241, 245, 249, 0.95);
       --text: #090d16;
       --muted: #374151;
       --accent: #1d4ed8;
-      --accent-soft: rgba(29, 78, 216, 0.12);
+      --accent-soft: rgba(29, 78, 216, 0.14);
       --border: rgba(203, 213, 225, 0.95);
-      --shadow: 0 10px 28px -8px rgba(15, 23, 42, 0.16);
+      --shadow: 0 10px 28px -8px rgba(15, 23, 42, 0.2);
       --success: #059669;
       --warning: #d97706;
     }
 
     body.dark {
-      --bg-overlay: rgba(8, 11, 18, 0.56);
-      --surface: rgba(13, 18, 28, 0.92);
+      --bg-overlay: rgba(8, 12, 22, 0.45);
+      --surface: rgba(13, 18, 28, 0.9);
       --surface-solid: #0f1522;
       --surface-subtle: rgba(23, 31, 46, 0.95);
       --text: #f3f4f6;
       --muted: #cbd5e1;
       --accent: #3b82f6;
-      --accent-soft: rgba(59, 130, 246, 0.18);
-      --border: rgba(51, 65, 85, 0.9);
-      --shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.65);
+      --accent-soft: rgba(59, 130, 246, 0.2);
+      --border: rgba(71, 85, 105, 0.9);
+      --shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.7);
       --success: #10b981;
       --warning: #f59e0b;
     }
@@ -44,6 +44,7 @@
       line-height: 1.6;
       min-height: 100vh;
       position: relative;
+      background: transparent;
       transition: color 0.25s ease;
     }
 
@@ -51,13 +52,14 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
-    /* 10-Photo Engineering Background Slideshow (25s interval) */
+    /* 10-Photo Engineering Background Slideshow (rotates every 25 seconds) */
     .bg-slideshow {
       position: fixed;
       inset: 0;
-      z-index: -2;
+      z-index: 0;
+      pointer-events: none;
       overflow: hidden;
-      background: #080b12;
+      background-color: #0b1120;
     }
 
     .bg-slide {
@@ -65,10 +67,11 @@
       inset: 0;
       background-size: cover;
       background-position: center;
-      filter: brightness(1.12) contrast(1.04);
+      background-repeat: no-repeat;
+      filter: brightness(1.08) contrast(1.05);
       opacity: 0;
       transform: scale(1.03);
-      transition: opacity 1.8s ease-in-out, transform 25s linear;
+      transition: opacity 1.5s ease-in-out, transform 25s linear;
     }
 
     .bg-slide.active {
@@ -79,12 +82,15 @@
     .bg-overlay {
       position: fixed;
       inset: 0;
-      z-index: -1;
+      z-index: 1;
+      pointer-events: none;
       background: var(--bg-overlay);
       transition: background 0.25s ease;
     }
 
     .container {
+      position: relative;
+      z-index: 2;
       max-width: 940px;
       margin: 0 auto;
       padding: 1.5rem 1.25rem 4rem;
@@ -191,7 +197,7 @@
 
     .hero p {
       color: var(--muted);
-      max-width: 680px;
+      max-width: 700px;
       font-size: 0.98rem;
       margin-bottom: 1.6rem;
     }
@@ -232,7 +238,6 @@
       gap: 0.4rem;
     }
 
-    /* Section Header */
     section { margin-bottom: 2.75rem; }
 
     .section-top {
@@ -257,7 +262,6 @@
       font-size: 0.88rem;
     }
 
-    /* Grids & Cards */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
@@ -283,9 +287,7 @@
       transition: transform 0.18s ease, border-color 0.18s ease;
     }
 
-    .project-card {
-      cursor: pointer;
-    }
+    .project-card { cursor: pointer; }
 
     .card:hover {
       transform: translateY(-3px);
@@ -346,13 +348,16 @@
       color: var(--accent);
     }
 
-    .panel {
+    .panel, .contact-card, footer {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.5rem;
       box-shadow: var(--shadow);
       backdrop-filter: blur(8px);
+    }
+
+    .panel {
+      border-radius: 14px;
+      padding: 1.5rem;
     }
 
     .panel p {
@@ -364,12 +369,8 @@
     .panel p:last-child { margin-bottom: 0; }
 
     .contact-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
       border-radius: 16px;
       padding: 1.75rem;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -388,11 +389,8 @@
     }
 
     footer {
-      background: var(--surface);
-      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 1rem 1.35rem;
-      backdrop-filter: blur(8px);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -402,12 +400,29 @@
       font-size: 0.84rem;
     }
 
+    .slide-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .mini-btn {
+      background: var(--surface-subtle);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.22rem 0.55rem;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
     /* Interactive Project Modal */
     .modal-backdrop {
       position: fixed;
       inset: 0;
       z-index: 100;
-      background: rgba(5, 8, 15, 0.78);
+      background: rgba(5, 8, 15, 0.8);
       backdrop-filter: blur(6px);
       display: none;
       align-items: center;
@@ -415,9 +430,7 @@
       padding: 1rem;
     }
 
-    .modal-backdrop.open {
-      display: flex;
-    }
+    .modal-backdrop.open { display: flex; }
 
     .modal-box {
       background: var(--surface-solid);
@@ -430,7 +443,6 @@
       overflow-y: auto;
       padding: 1.75rem;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
-      position: relative;
     }
 
     .modal-header {
@@ -454,9 +466,7 @@
       font-size: 0.9rem;
     }
 
-    .modal-section {
-      margin-bottom: 1.35rem;
-    }
+    .modal-section { margin-bottom: 1.35rem; }
 
     .modal-section h4 {
       font-size: 0.85rem;
@@ -545,7 +555,7 @@
 
     .shot-card img {
       width: 100%;
-      height: 150px;
+      height: 165px;
       object-fit: cover;
       display: block;
     }
@@ -554,12 +564,6 @@
       padding: 0.55rem 0.75rem;
       font-size: 0.8rem;
       color: var(--muted);
-    }
-
-    .download-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
     }
 
     .canvas-wrap {
@@ -590,7 +594,7 @@
 </head>
 <body class="dark">
 
-  <!-- 10 Engineering Background Photos (changes every 25 seconds) -->
+  <!-- 10 Engineering Background Photos (rotates every 25 seconds) -->
   <div class="bg-slideshow" id="bgSlideshow" aria-hidden="true"></div>
   <div class="bg-overlay" aria-hidden="true"></div>
 
@@ -609,12 +613,12 @@
     <header class="hero">
       <div class="status-pill">
         <span class="status-dot"></span>
-        <span>Engineering &bull; Hardware &bull; CAD &bull; Web</span>
+        <span>Engineering &bull; CAD &amp; 3D Modeling &bull; Circuits &bull; Web</span>
       </div>
       <h1>Joseph Kimani</h1>
       <div class="hero-role">Mechatronics, Mechanical &amp; Electrical Systems Builder</div>
       <p>
-        I build hands-on electronic circuits, parametric CAD mechanisms, 3D models, and clean web tools—grounded in first-principles engineering analysis and collaborative problem-solving. <strong>Click any project card below to launch its interactive simulator, screenshots, and CAD/Proteus downloads.</strong>
+        I build hands-on electronic circuits, CAD &amp; 3D models, mechanical assemblies, and web tools—grounded in first-principles engineering analysis and collaborative problem-solving. <strong>Click any project card below to view project photos and test its interactive simulator.</strong>
       </p>
       <div class="cta-row">
         <a href="#projects" class="btn-primary">Open Interactive Projects</a>
@@ -626,56 +630,56 @@
     <section id="projects">
       <div class="section-top">
         <h2>Interactive Projects &amp; Engineering Lab</h2>
-        <p>Click any square below to inspect circuit simulations, 3D/CAD models, screenshots, and source files.</p>
+        <p>Click any card to view project photos (like CAD modeling &amp; circuits) and test interactive simulations.</p>
       </div>
       <div class="projects-grid">
-        <article class="card project-card" data-project="triac">
+        <article class="card project-card" data-project="cad">
           <div>
-            <div class="card-top"><span>Proteus &amp; Power</span><span>01</span></div>
-            <h3>TRIAC Automatic Street Light Controller</h3>
-            <p>Built and tested an AC dusk-to-dawn lighting circuit using a BT136 TRIAC, LDR light sensor, and 100k&Omega; biasing network with Proteus simulation &amp; bench diagnostics.</p>
+            <div class="card-top"><span>CAD &amp; 3D Modeling</span><span>01</span></div>
+            <h3>CAD Modeling &amp; Parametric Assemblies</h3>
+            <p>3D CAD modeling, FreeCAD assemblies, mechanism clearances, and lift kinematics—view CAD modeling photos and test elevation height &amp; link geometry.</p>
             <div class="pill-list">
-              <span class="pill">BT136 TRIAC</span>
-              <span class="pill">Proteus</span>
-              <span class="pill">LDR Sensor</span>
+              <span class="pill">CAD Modeling</span>
+              <span class="pill">FreeCAD</span>
+              <span class="pill">3D Assemblies</span>
             </div>
           </div>
           <div class="card-footer-action">
-            <span>Launch Circuit Sim &amp; Files</span>
+            <span>View CAD Photos &amp; Sim</span>
             <span>&rarr;</span>
           </div>
         </article>
 
-        <article class="card project-card" data-project="cad">
+        <article class="card project-card" data-project="triac">
           <div>
-            <div class="card-top"><span>FreeCAD &amp; Mechanisms</span><span>02</span></div>
-            <h3>Parametric Scissor Lift Assembly</h3>
-            <p>Modeled a multi-link scissor lift assembly in FreeCAD using Sketcher and Part Design workbenches with mechanical constraints, actuator kinematics, and STL exports.</p>
+            <div class="card-top"><span>Circuits &amp; Power</span><span>02</span></div>
+            <h3>TRIAC Automatic Street Light Circuit</h3>
+            <p>AC dusk-to-dawn lighting circuit using a BT136 TRIAC, LDR light sensor, and 100k&Omega; biasing network—view circuit photos and simulate gate triggering.</p>
             <div class="pill-list">
-              <span class="pill">FreeCAD (.FCStd)</span>
-              <span class="pill">Kinematics</span>
-              <span class="pill">STEP / STL</span>
+              <span class="pill">Circuits</span>
+              <span class="pill">BT136 TRIAC</span>
+              <span class="pill">LDR Sensor</span>
             </div>
           </div>
           <div class="card-footer-action">
-            <span>Open CAD Model &amp; Lift Sim</span>
+            <span>View Circuit Photos &amp; Sim</span>
             <span>&rarr;</span>
           </div>
         </article>
 
         <article class="card project-card" data-project="analog">
           <div>
-            <div class="card-top"><span>Analog &amp; Digital</span><span>03</span></div>
+            <div class="card-top"><span>Analog &amp; Digital Circuits</span><span>03</span></div>
             <h3>Op-Amp Filters, Oscillators &amp; Logic</h3>
-            <p>Designed active low-pass filters, summing/integrator stages, Wien bridge oscillators, BJT amplifiers, RLC transients, and 2's complement digital arithmetic circuits.</p>
+            <p>Active RC low-pass filters, summing/integrator op-amp stages, Wien bridge oscillators, BJT amplifiers, RLC transients, and 2's complement digital arithmetic.</p>
             <div class="pill-list">
               <span class="pill">Op-Amps</span>
               <span class="pill">2's Complement</span>
-              <span class="pill">Proteus / SPICE</span>
+              <span class="pill">RLC &amp; Logic</span>
             </div>
           </div>
           <div class="card-footer-action">
-            <span>Open Filter &amp; Logic Lab</span>
+            <span>View Photos &amp; Filter/Logic Lab</span>
             <span>&rarr;</span>
           </div>
         </article>
@@ -684,7 +688,7 @@
           <div>
             <div class="card-top"><span>Planar Mechanics</span><span>04</span></div>
             <h3>Scotch Yoke &amp; Crank-Slider Kinematics</h3>
-            <p>Analyzed instantaneous displacement, velocity, and acceleration in crank-and-slotted-lever and Scotch yoke mechanisms alongside CNC machining and steel heat-treatment studies.</p>
+            <p>Instantaneous displacement, velocity, and acceleration in crank-and-slotted-lever and Scotch yoke mechanisms alongside CNC machining and heat treatment.</p>
             <div class="pill-list">
               <span class="pill">Kinematics</span>
               <span class="pill">CNC &amp; Machining</span>
@@ -692,24 +696,24 @@
             </div>
           </div>
           <div class="card-footer-action">
-            <span>Launch Crank Motion Sim</span>
+            <span>View Photos &amp; Motion Sim</span>
             <span>&rarr;</span>
           </div>
         </article>
 
         <article class="card project-card" data-project="blender">
           <div>
-            <div class="card-top"><span>Blender 3D</span><span>05</span></div>
+            <div class="card-top"><span>3D Mesh &amp; Visualization</span><span>05</span></div>
             <h3>3D Mechanical &amp; Product Modeling</h3>
-            <p>Created hard-surface 3D mechanical components and rendered concepts in Blender with clean mesh topology, bevel workflows, and downloadable `.blend` / `.obj` assets.</p>
+            <p>Hard-surface 3D modeling and visual geometry in Blender—inspect an interactive 3D gear-ring mesh and browse 3D design &amp; modeling photos.</p>
             <div class="pill-list">
-              <span class="pill">Blender (.blend)</span>
+              <span class="pill">3D Modeling</span>
+              <span class="pill">Blender</span>
               <span class="pill">3D Viewport</span>
-              <span class="pill">Hard-Surface</span>
             </div>
           </div>
           <div class="card-footer-action">
-            <span>Inspect 3D Mesh &amp; Files</span>
+            <span>View 3D Photos &amp; Orbit Mesh</span>
             <span>&rarr;</span>
           </div>
         </article>
@@ -718,7 +722,7 @@
           <div>
             <div class="card-top"><span>Web &amp; Market Data</span><span>06</span></div>
             <h3>Web Deployments &amp; XAU/USD Macro Tracker</h3>
-            <p>Deployed static web applications via GitHub and Render while tracking U.S. macro releases (CPI, PPI, NFP, FOMC) alongside technical price structure on XAU/USD.</p>
+            <p>Static web deployments via GitHub and Render paired with U.S. macro event tracking (CPI, PPI, NFP, FOMC) and technical price structure on XAU/USD.</p>
             <div class="pill-list">
               <span class="pill">HTML / CSS / JS</span>
               <span class="pill">Render Cloud</span>
@@ -736,31 +740,31 @@
     <section id="skills">
       <div class="section-top">
         <h2>Skills &amp; Tools</h2>
-        <p>Core engineering, design, and software skills used across solo and shared builds.</p>
+        <p>Core engineering, CAD/3D modeling, circuit, and software skills across solo and shared builds.</p>
       </div>
       <div class="skills-grid">
         <div class="card">
           <div>
-            <div class="card-top"><span>CAD &amp; 3D</span></div>
-            <h3>Design &amp; Modeling</h3>
-            <p>Parametric modeling, mechanism geometry, and 3D visual assets.</p>
+            <div class="card-top"><span>CAD &amp; 3D Modeling</span></div>
+            <h3>Design &amp; CAD</h3>
+            <p>3D CAD modeling, parametric parts, mechanism geometry, and visual models.</p>
           </div>
           <div class="pill-list">
+            <span class="pill">CAD Modeling</span>
             <span class="pill">FreeCAD</span>
             <span class="pill">Blender</span>
             <span class="pill">Kinematics</span>
-            <span class="pill">Materials Science</span>
           </div>
         </div>
 
         <div class="card">
           <div>
-            <div class="card-top"><span>Electronics</span></div>
-            <h3>Circuits &amp; Lab Testing</h3>
-            <p>Proteus simulation, power switching, and multimeter diagnostics.</p>
+            <div class="card-top"><span>Circuits &amp; Power</span></div>
+            <h3>Electronic Circuits</h3>
+            <p>Analog/digital circuits, AC power switching, and multimeter diagnostics.</p>
           </div>
           <div class="pill-list">
-            <span class="pill">Proteus ISIS</span>
+            <span class="pill">Circuit Design</span>
             <span class="pill">Analog &amp; Digital</span>
             <span class="pill">TRIAC / AC</span>
             <span class="pill">Diagnostics</span>
@@ -785,543 +789,4 @@
           <div>
             <div class="card-top"><span>Analysis</span></div>
             <h3>Math &amp; Systems</h3>
-            <p>Multivariable calculus, dynamic systems, and structured market analysis.</p>
-          </div>
-          <div class="pill-list">
-            <span class="pill">Calculus III</span>
-            <span class="pill">Control &amp; RLC</span>
-            <span class="pill">Technical Analysis</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="section-top">
-        <h2>About</h2>
-        <p>Engineering student in Kenya focused on practical execution and first-principles clarity.</p>
-      </div>
-      <div class="panel">
-        <p>
-          I'm <strong>Joseph Kimani</strong>, studying engineering across mechanical, electrical, and mechatronics topics while building real circuits, CAD assemblies, and web projects. I like breaking complex problems down step by step—whether simulating a circuit in Proteus, modeling a multi-bar assembly in FreeCAD, or structuring a clean web layout.
-        </p>
-        <p>
-          I also collaborate closely on technical projects and skill-sharing, combining hardware and software workflows with disciplined analytical habits.
-        </p>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="contact-card">
-        <div>
-          <h3>Get in Touch</h3>
-          <p>Reach out directly at <code class="mono">keemanijoseph@gmail.com</code> for projects, builds, or collaborations.</p>
-        </div>
-        <div class="cta-row">
-          <a href="mailto:keemanijoseph@gmail.com" class="btn-primary">Send Email</a>
-          <a href="https://github.com/itskym736-creator" target="_blank" rel="noopener" class="btn-ghost">GitHub</a>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div>&copy; <span id="year"></span> Joseph Kimani &bull; keemanijoseph@gmail.com</div>
-      <div class="mono" id="slideCounter">Backdrop 1/10 (25s)</div>
-    </footer>
-  </div>
-
-  <!-- Interactive Project Modal -->
-  <div class="modal-backdrop" id="projectModal" role="dialog" aria-modal="true">
-    <div class="modal-box">
-      <div class="modal-header">
-        <div>
-          <div class="card-top" id="modalCategory">Category</div>
-          <h3 id="modalTitle" style="font-size: 1.35rem;">Project Title</h3>
-        </div>
-        <button class="modal-close" id="closeModal">Close &times;</button>
-      </div>
-      <div id="modalBody"></div>
-    </div>
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const themeBtn = document.getElementById("themeToggle");
-    themeBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-      themeBtn.textContent = document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
-    });
-
-    const copyBtn = document.getElementById("copyEmail");
-    copyBtn.addEventListener("click", () => {
-      navigator.clipboard.writeText("keemanijoseph@gmail.com").then(() => {
-        const prev = copyBtn.textContent;
-        copyBtn.textContent = "Copied!";
-        setTimeout(() => { copyBtn.textContent = prev; }, 2000);
-      });
-    });
-
-    // 10 Engineering Background Photos rotating every 25 seconds
-    const engineeringPhotos = [
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=1920&q=80",
-      "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=1920&q=80"
-    ];
-
-    const slideshow = document.getElementById("bgSlideshow");
-    const counter = document.getElementById("slideCounter");
-    let idx = 0;
-
-    engineeringPhotos.forEach((src, i) => {
-      const slide = document.createElement("div");
-      slide.className = i === 0 ? "bg-slide active" : "bg-slide";
-      slide.style.backgroundImage = `url('${src}')`;
-      slideshow.appendChild(slide);
-    });
-
-    const slideNodes = document.querySelectorAll(".bg-slide");
-    setInterval(() => {
-      slideNodes[idx].classList.remove("active");
-      idx = (idx + 1) % slideNodes.length;
-      slideNodes[idx].classList.add("active");
-      counter.textContent = `Backdrop ${idx + 1}/10 (25s)`;
-    }, 25000);
-
-    // Project Modal Data & Interactive Labs
-    const modal = document.getElementById("projectModal");
-    const modalCategory = document.getElementById("modalCategory");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalBody = document.getElementById("modalBody");
-    const closeModalBtn = document.getElementById("closeModal");
-
-    const projectData = {
-      triac: {
-        category: "Proteus & Power Electronics",
-        title: "TRIAC Automatic Street Light Controller (BT136 + LDR)",
-        html: `
-          <div class="modal-section">
-            <p style="color: var(--muted); font-size: 0.93rem;">
-              Uses an LDR (Light Dependent Resistor) and 100k&Omega; series resistor divider to sense ambient darkness and trigger the gate of a BT136 TRIAC, switching an AC street lamp automatically at dusk.
-            </p>
-          </div>
-          <div class="modal-section">
-            <h4>Interactive Circuit Simulator: LDR Gate Trigger</h4>
-            <div class="sim-box">
-              <div class="sim-grid">
-                <div class="sim-field">
-                  <label>Ambient Light Level: <span id="luxVal">15</span>% (0% = Dark, 100% = Bright Sun)</label>
-                  <input type="range" id="luxSlider" min="0" max="100" value="15" />
-                </div>
-                <div class="sim-field">
-                  <label>Series Bias Resistor R1 (k&Omega;): <span id="r1Val">100</span> k&Omega;</label>
-                  <input type="range" id="r1Slider" min="10" max="220" value="100" />
-                </div>
-              </div>
-              <div class="sim-output">
-                <div>
-                  <strong>LDR Resistance:</strong> <span class="mono" id="ldrOhm">85.0 k&Omega;</span> &bull;
-                  <strong>Gate Drive:</strong> <span class="mono" id="gateVolt">5.51 V</span>
-                </div>
-                <div id="lampState"><span class="badge-on">AC LAMP: ON (TRIAC CONDUCTING)</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-section">
-            <h4>Proteus Schematic &amp; Bench Build Screenshots</h4>
-            <div class="screenshot-grid">
-              <div class="shot-card">
-                <img src="assets/triac-proteus.png" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=700&q=80'" alt="Proteus Schematic" />
-                <div class="shot-caption">Proteus ISIS Schematic &amp; AC Load Simulation (upload <code>assets/triac-proteus.png</code>)</div>
-              </div>
-              <div class="shot-card">
-                <img src="assets/triac-bench.jpg" onerror="this.src='https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=700&q=80'" alt="Hardware Prototype" />
-                <div class="shot-caption">Bench Prototype &amp; Multimeter Test (upload <code>assets/triac-bench.jpg</code>)</div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-section">
-            <h4>Download Project Resources</h4>
-            <div class="download-row">
-              <a class="btn-primary" href="assets/automatic-streetlight.pdsprj" download>Download Proteus File (.pdsprj)</a>
-              <a class="btn-ghost" href="assets/triac-schematic.pdf" download>Schematic PDF</a>
-            </div>
-          </div>
-        `,
-        init() {
-          const lux = document.getElementById("luxSlider");
-          const r1 = document.getElementById("r1Slider");
-          const update = () => {
-            const L = Number(lux.value);
-            const R1 = Number(r1.value);
-            document.getElementById("luxVal").textContent = L;
-            document.getElementById("r1Val").textContent = R1;
-            const Rldr = Math.max(1.2, Math.round((100 - L) * 1.15 * 10) / 10);
-            const Vgate = (12 * (Rldr / (R1 + Rldr))).toFixed(2);
-            document.getElementById("ldrOhm").textContent = Rldr.toFixed(1) + " k\u03A9";
-            document.getElementById("gateVolt").textContent = Vgate + " V";
-            const stateEl = document.getElementById("lampState");
-            if (Number(Vgate) >= 4.2) {
-              stateEl.innerHTML = '<span class="badge-on">AC LAMP: ON (TRIAC CONDUCTING)</span>';
-            } else {
-              stateEl.innerHTML = '<span class="badge-off">AC LAMP: OFF (DAYLIGHT CUTOFF)</span>';
-            }
-          };
-          lux.addEventListener("input", update);
-          r1.addEventListener("input", update);
-          update();
-        }
-      },
-
-      cad: {
-        category: "FreeCAD & Mechanical Assemblies",
-        title: "Parametric Scissor Lift Mechanism (.FCStd / .STEP)",
-        html: `
-          <div class="modal-section">
-            <p style="color: var(--muted); font-size: 0.93rem;">
-              Fully constrained multi-stage scissor lift modeled in FreeCAD's Sketcher and Part Design workbenches with pin joints, base rails, and top platform clearances.
-            </p>
-          </div>
-          <div class="modal-section">
-            <h4>Interactive Kinematic Height &amp; Link Simulator</h4>
-            <div class="sim-box">
-              <div class="sim-grid">
-                <div class="sim-field">
-                  <label>Link Elevation Angle &theta;: <span id="thetaVal">35</span>&deg;</label>
-                  <input type="range" id="thetaSlider" min="10" max="70" value="35" />
-                </div>
-                <div class="sim-field">
-                  <label>Arm Length L (mm) &times; 2 Stages</label>
-                  <input type="number" id="armLen" value="400" min="100" max="1500" />
-                </div>
-              </div>
-              <div class="sim-output">
-                <div><strong>Platform Height (2-Stage):</strong> <span class="mono" id="liftHeight">458.9 mm</span></div>
-                <div><strong>Span Width:</strong> <span class="mono" id="liftSpan">327.7 mm</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-section">
-            <h4>FreeCAD Assembly Screenshots</h4>
-            <div class="screenshot-grid">
-              <div class="shot-card">
-                <img src="assets/scissor-lift-iso.png" onerror="this.src='https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=700&q=80'" alt="FreeCAD Isometric View" />
-                <div class="shot-caption">Isometric Assembly View (upload <code>assets/scissor-lift-iso.png</code>)</div>
-              </div>
-              <div class="shot-card">
-                <img src="assets/scissor-lift-sketch.png" onerror="this.src='https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=700&q=80'" alt="Parametric Sketch Constraints" />
-                <div class="shot-caption">Constrained Sketcher Geometry (upload <code>assets/scissor-lift-sketch.png</code>)</div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-section">
-            <h4>Download CAD Files</h4>
-            <div class="download-row">
-              <a class="btn-primary" href="assets/scissor-lift.FCStd" download>Download FreeCAD (.FCStd)</a>
-              <a class="btn-ghost" href="assets/scissor-lift.step" download>Download STEP (.step)</a>
-              <a class="btn-ghost" href="assets/scissor-lift.stl" download>Download STL (.stl)</a>
-            </div>
-          </div>
-        `,
-        init() {
-          const theta = document.getElementById("thetaSlider");
-          const len = document.getElementById("armLen");
-          const update = () => {
-            const deg = Number(theta.value);
-            const L = Number(len.value) || 400;
-            const rad = (deg * Math.PI) / 180;
-            document.getElementById("thetaVal").textContent = deg;
-            document.getElementById("liftHeight").textContent = (2 * L * Math.sin(rad)).toFixed(1) + " mm";
-            document.getElementById("liftSpan").textContent = (L * Math.cos(rad)).toFixed(1) + " mm";
-          };
-          theta.addEventListener("input", update);
-          len.addEventListener("input", update);
-          update();
-        }
-      },
-
-      analog: {
-        category: "Analog & Digital Electronics",
-        title: "Op-Amp Active Filters, Oscillators & 2's Complement Logic",
-        html: `
-          <div class="modal-section">
-            <p style="color: var(--muted); font-size: 0.93rem;">
-              Circuit design and verification covering active RC low-pass filters, Wien bridge oscillators, BJT amplifiers, and signed binary arithmetic using 2's complement subtraction.
-            </p>
-          </div>
-          <div class="modal-section">
-            <h4>Interactive Filter &amp; 8-Bit 2's Complement Lab</h4>
-            <div class="sim-box">
-              <div class="sim-grid">
-                <div class="sim-field">
-                  <label>Filter Resistor R (k&Omega;)</label>
-                  <input type="number" id="rcR" value="10" min="0.1" step="0.5" />
-                </div>
-                <div class="sim-field">
-                  <label>Filter Capacitor C (nF)</label>
-                  <input type="number" id="rcC" value="15.9" min="0.1" step="0.5" />
-                </div>
-                <div class="sim-field">
-                  <label>Signed Integer (-128 to +127)</label>
-                  <input type="number" id="twosNum" value="-25" min="-128" max="127" />
-                </div>
-              </div>
-              <div class="sim-output">
-                <div><strong>Cutoff Frequency f<sub>c</sub>:</strong> <span class="mono" id="fcOut">1001.0 Hz</span></div>
-                <div><strong>8-Bit 2's Comp:</strong> <span class="mono" id="binOut">11100111</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-section">
-            <h4>Simulation Screenshots &amp; Downloads</h4>
-            <div class="screenshot-grid" style="margin-bottom: 0.9rem;">
-              <div class="shot-card">
-                <img src="assets/opamp-oscilloscope.png" onerror="this.src='https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=700&q=80'" alt="Oscilloscope Waveform" />
-                <div class="shot-caption">Wien Bridge &amp; Filter Bode/Scope Output (upload <code>assets/opamp-oscilloscope.png</code>)</div>
-              </div>
-              <div class="shot-card">
-                <img src="assets/digital-logic.png" onerror="this.src='https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=700&q=80'" alt="Digital Logic Circuit" />
-                <div class="shot-caption">2's Complement Adder/Subtractor (upload <code>assets/digital-logic.png</code>)</div>
-              </div>
-            </div>
-            <div class="download-row">
-              <a class="btn-primary" href="assets/opamp-circuits.pdsprj" download>Download Proteus Pack (.pdsprj)</a>
-              <a class="btn-ghost" href="assets/logic-subtractor.pdsprj" download>2's Comp Logic (.pdsprj)</a>
-            </div>
-          </div>
-        `,
-        init() {
-          const rEl = document.getElementById("rcR");
-          const cEl = document.getElementById("rcC");
-          const nEl = document.getElementById("twosNum");
-          const update = () => {
-            const R = (Number(rEl.value) || 10) * 1e3;
-            const C = (Number(cEl.value) || 15.9) * 1e-9;
-            const fc = 1 / (2 * Math.PI * R * C);
-            document.getElementById("fcOut").textContent = fc >= 1000 ? (fc / 1000).toFixed(2) + " kHz" : fc.toFixed(1) + " Hz";
-
-            let n = Math.max(-128, Math.min(127, Math.trunc(Number(nEl.value) || 0)));
-            const twos = ((n + 256) % 256).toString(2).padStart(8, "0");
-            document.getElementById("binOut").textContent = twos;
-          };
-          rEl.addEventListener("input", update);
-          cEl.addEventListener("input", update);
-          nEl.addEventListener("input", update);
-          update();
-        }
-      },
-
-      kinematics: {
-        category: "Theory of Machines & Manufacturing",
-        title: "Scotch Yoke & Planar Mechanism Kinematics",
-        html: `
-          <div class="modal-section">
-            <p style="color: var(--muted); font-size: 0.93rem;">
-              Analytical kinematic modeling for Scotch yoke and crank-and-slotted-lever mechanisms, paired with CNC downward milling and steel heat-treatment evaluations.
-            </p>
-          </div>
-          <div class="modal-section">
-            <h4>Interactive Scotch Yoke Motion Calculator</h4>
-            <div class="sim-box">
-              <div class="sim-grid">
-                <div class="sim-field">
-                  <label>Crank Angle &theta;: <span id="crankDeg">45</span>&deg;</label>
-                  <input type="range" id="crankSlider" min="0" max="360" value="45" />
-                </div>
-                <div class="sim-field">
-                  <label>Crank Radius r (mm)</label>
-                  <input type="number" id="crankR" value="60" min="5" max="500" />
-                </div>
-                <div class="sim-field">
-                  <label>Speed (RPM)</label>
-                  <input type="number" id="crankRpm" value="120" min="1" max="5000" />
-                </div>
-              </div>
-              <div class="sim-output">
-                <div><strong>Displacement x:</strong> <span class="mono" id="yokeX">42.4 mm</span></div>
-                <div><strong>Velocity v:</strong> <span class="mono" id="yokeV">-0.533 m/s</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-section">
-            <h4>Download Velocity Diagrams &amp; Notes</h4>
-            <div class="download-row">
-              <a class="btn-primary" href="assets/kinematics-analysis.pdf" download>Download Velocity Analysis (.pdf)</a>
-            </div>
-          </div>
-        `,
-        init() {
-          const degEl = document.getElementById("crankSlider");
-          const rEl = document.getElementById("crankR");
-          const rpmEl = document.getElementById("crankRpm");
-          const update = () => {
-            const deg = Number(degEl.value);
-            const r = (Number(rEl.value) || 60) / 1000;
-            const rpm = Number(rpmEl.value) || 120;
-            const rad = (deg * Math.PI) / 180;
-            const omega = (2 * Math.PI * rpm) / 60;
-            document.getElementById("crankDeg").textContent = deg;
-            document.getElementById("yokeX").textContent = (r * 1000 * Math.cos(rad)).toFixed(1) + " mm";
-            document.getElementById("yokeV").textContent = (-r * omega * Math.sin(rad)).toFixed(3) + " m/s";
-          };
-          degEl.addEventListener("input", update);
-          rEl.addEventListener("input", update);
-          rpmEl.addEventListener("input", update);
-          update();
-        }
-      },
-
-      blender: {
-        category: "Blender 3D Modeling",
-        title: "3D Mechanical & Product Modeling Showcase",
-        html: `
-          <div class="modal-section">
-            <p style="color: var(--muted); font-size: 0.93rem;">
-              Hard-surface 3D modeling and product visualization built in Blender. Drag the interactive 3D viewport below to inspect a mechanical gear-ring wireframe in real time.
-            </p>
-          </div>
-          <div class="modal-section">
-            <h4>Interactive 3D Viewport Preview (Drag to Rotate)</h4>
-            <div class="canvas-wrap" id="meshWrap">
-              <canvas id="meshCanvas"></canvas>
-              <div class="canvas-hint">Drag to orbit 3D mesh</div>
-            </div>
-          </div>
-          <div class="modal-section">
-            <h4>Blender Renders &amp; Source Downloads</h4>
-            <div class="screenshot-grid" style="margin-bottom: 0.9rem;">
-              <div class="shot-card">
-                <img src="assets/blender-render-1.png" onerror="this.src='https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=700&q=80'" alt="Blender Render 1" />
-                <div class="shot-caption">Studio Render Pass (upload <code>assets/blender-render-1.png</code>)</div>
-              </div>
-              <div class="shot-card">
-                <img src="assets/blender-wireframe.png" onerror="this.src='https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=700&q=80'" alt="Blender Topology" />
-                <div class="shot-caption">Subdivision &amp; Bevel Topology (upload <code>assets/blender-wireframe.png</code>)</div>
-              </div>
-            </div>
-            <div class="download-row">
-              <a class="btn-primary" href="assets/mechanical-part.blend" download>Download Blender File (.blend)</a>
-              <a class="btn-ghost" href="assets/mechanical-part.obj" download>Download OBJ Mesh (.obj)</a>
-            </div>
-          </div>
-        `,
-        init() {
-          const wrap = document.getElementById("meshWrap");
-          const canvas = document.getElementById("meshCanvas");
-          const ctx = canvas.getContext("2d");
-          canvas.width = wrap.clientWidth;
-          canvas.height = wrap.clientHeight;
-
-          // Build a 3D mechanical spur-gear ring mesh
-          const pts = [];
-          const edges = [];
-          const teeth = 16;
-          const total = teeth * 2;
-          for (let layer = -1; layer <= 1; layer += 2) {
-            const z = layer * 24;
-            const baseIdx = pts.length;
-            for (let i = 0; i < total; i++) {
-              const a = (i / total) * Math.PI * 2;
-              const rOuter = i % 2 === 0 ? 86 : 70;
-              const rInner = 34;
-              pts.push([Math.cos(a) * rOuter, Math.sin(a) * rOuter, z]);
-              pts.push([Math.cos(a) * rInner, Math.sin(a) * rInner, z]);
-              const currOut = baseIdx + i * 2;
-              const currIn = currOut + 1;
-              const nextOut = baseIdx + ((i + 1) % total) * 2;
-              const nextIn = nextOut + 1;
-              edges.push([currOut, nextOut], [currIn, nextIn], [currOut, currIn]);
-            }
-          }
-          const half = pts.length / 2;
-          for (let i = 0; i < half; i++) edges.push([i, i + half]);
-
-          let rotX = 0.55, rotY = 0.35, dragging = false, lastX = 0, lastY = 0;
-          wrap.addEventListener("pointerdown", e => { dragging = true; lastX = e.clientX; lastY = e.clientY; });
-          window.addEventListener("pointerup", () => { dragging = false; });
-          wrap.addEventListener("pointermove", e => {
-            if (!dragging) return;
-            rotY += (e.clientX - lastX) * 0.01;
-            rotX += (e.clientY - lastY) * 0.01;
-            lastX = e.clientX;
-            lastY = e.clientY;
-          });
-
-          function render() {
-            if (!document.getElementById("meshCanvas")) return;
-            if (!dragging) rotY += 0.008;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            const cx = canvas.width / 2, cy = canvas.height / 2;
-            const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
-            const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
-
-            const proj = pts.map(([x, y, z]) => {
-              const y1 = y * cosX - z * sinX;
-              const z1 = y * sinX + z * cosX;
-              const x2 = x * cosY + z1 * sinY;
-              const z2 = -x * sinY + z1 * cosY;
-              const scale = 320 / (320 + z2);
-              return [cx + x2 * scale, cy + y1 * scale];
-            });
-
-            ctx.strokeStyle = "#3b82f6";
-            ctx.lineWidth = 1.25;
-            ctx.beginPath();
-            for (const [a, b] of edges) {
-              ctx.moveTo(proj[a][0], proj[a][1]);
-              ctx.lineTo(proj[b][0], proj[b][1]);
-            }
-            ctx.stroke();
-            requestAnimationFrame(render);
-          }
-          render();
-        }
-      },
-
-      quant: {
-        category: "Web & Quantitative Market Analysis",
-        title: "Portfolio Engineering & XAU/USD Macro Risk Tool",
-        html: `
-          <div class="modal-section">
-            <p style="color: var(--muted); font-size: 0.93rem;">
-              Continuous static web deployment via GitHub + Render paired with structured risk management around U.S. CPI, PPI, NFP, and FOMC releases on Gold (XAU/USD).
-            </p>
-          </div>
-          <div class="modal-section">
-            <h4>Interactive XAU/USD Risk &amp; Lot Size Calculator</h4>
-            <div class="sim-box">
-              <div class="sim-grid">
-                <div class="sim-field">
-                  <label>Account Risk ($ USD)</label>
-                  <input type="number" id="riskUsd" value="50" min="1" />
-                </div>
-                <div class="sim-field">
-                  <label>Stop-Loss Distance ($ Move on Gold)</label>
-                  <input type="number" id="slMove" value="5.0" min="0.1" step="0.5" />
-                </div>
-              </div>
-              <div class="sim-output">
-                <div><strong>Recommended Lot Size:</strong> <span class="mono" id="lotOut">0.10 Lots</span></div>
-                <div><strong>Contract Exposure:</strong> <span class="mono" id="ozOut">10.0 oz</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-section">
-            <h4>Repository &amp; Live Links</h4>
-            <div class="download-row">
-              <a class="btn-primary" href="https://github.com/itskym736-creator/my-portfolio" target="_blank" rel="noopener">View GitHub Source</a>
-            </div>
-          </div>
-        `,
-        init() {
-          const rEl = document.getElementById("riskUsd");
-          const sEl = document.getElementById("slMove");
-          const update = () => {
-            const
+            <p>Multivariable calculus
