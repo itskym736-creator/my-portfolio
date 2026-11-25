@@ -3,256 +3,635 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name — Personal Portfolio</title>
+  <title>Joseph Kimani — Engineering &amp; Systems Portfolio</title>
   <style>
     :root {
-      --bg: #f8fafc;
-      --surface: #ffffff;
-      --text: #0f172a;
-      --muted: #475569;
-      --accent: #2563eb;
-      --border: #e2e8f0;
+      --bg-overlay: rgba(244, 246, 250, 0.88);
+      --surface: rgba(255, 255, 255, 0.94);
+      --surface-subtle: rgba(241, 245, 249, 0.9);
+      --text: #090d16;
+      --muted: #4b5563;
+      --accent: #1d4ed8;
+      --accent-soft: rgba(29, 78, 216, 0.09);
+      --border: rgba(209, 213, 219, 0.9);
+      --shadow: 0 8px 24px -8px rgba(15, 23, 42, 0.08);
     }
 
     body.dark {
-      --bg: #0f172a;
-      --surface: #1e293b;
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-      --accent: #60a5fa;
-      --border: #334155;
+      --bg-overlay: rgba(8, 11, 18, 0.88);
+      --surface: rgba(15, 20, 30, 0.92);
+      --surface-subtle: rgba(23, 31, 46, 0.92);
+      --text: #f3f4f6;
+      --muted: #9ca3af;
+      --accent: #3b82f6;
+      --accent-soft: rgba(59, 130, 246, 0.14);
+      --border: rgba(39, 49, 66, 0.95);
+      --shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.6);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background-color: var(--bg);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       color: var(--text);
-      line-height: 1.65;
-      transition: background-color 0.2s, color 0.2s;
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+      transition: color 0.25s ease;
+    }
+
+    code, .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    /* 10-Photo Engineering Background Slideshow (25s interval) */
+    .bg-slideshow {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      overflow: hidden;
+      background: #080b12;
+    }
+
+    .bg-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transform: scale(1.03);
+      transition: opacity 1.8s ease-in-out, transform 25s linear;
+    }
+
+    .bg-slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: var(--bg-overlay);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      transition: background 0.25s ease;
     }
 
     .container {
-      max-width: 820px;
+      max-width: 920px;
       margin: 0 auto;
-      padding: 2.5rem 1.25rem 4rem;
+      padding: 1.5rem 1.25rem 4rem;
     }
 
+    /* Top Bar */
     nav {
+      position: sticky;
+      top: 1rem;
+      z-index: 20;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding: 0.7rem 1.15rem;
+      margin-bottom: 2.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
     }
 
-    .logo {
+    .brand {
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1rem;
       letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
     }
 
-    .nav-links {
+    .nav-group {
       display: flex;
-      gap: 1.25rem;
       align-items: center;
+      gap: 1.15rem;
+      flex-wrap: wrap;
     }
 
-    .nav-links a {
+    .nav-group a {
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
+      font-weight: 500;
     }
 
-    .nav-links a:hover { color: var(--accent); }
+    .nav-group a:hover { color: var(--accent); }
 
-    button.theme-btn {
-      background: var(--surface);
+    .theme-btn {
+      background: var(--surface-subtle);
       color: var(--text);
       border: 1px solid var(--border);
-      padding: 0.35rem 0.7rem;
-      border-radius: 6px;
+      padding: 0.32rem 0.7rem;
+      border-radius: 7px;
+      font-size: 0.8rem;
+      font-weight: 600;
       cursor: pointer;
-      font-size: 0.85rem;
     }
 
-    header { margin-bottom: 3.5rem; }
-
-    header h1 {
-      font-size: 2.25rem;
-      line-height: 1.2;
-      margin-bottom: 0.75rem;
+    /* Hero */
+    .hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.25rem 1.85rem;
+      margin-bottom: 2.75rem;
+      box-shadow: var(--shadow);
     }
 
-    header p {
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 0.28rem 0.7rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 4vw, 2.55rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.65rem;
+    }
+
+    .hero-role {
+      font-size: 1.05rem;
+      font-weight: 600;
       color: var(--muted);
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.9rem;
     }
 
-    .cta {
-      display: inline-block;
+    .hero p {
+      color: var(--muted);
+      max-width: 680px;
+      font-size: 0.98rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .btn-primary {
       background: var(--accent);
       color: #ffffff;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
       text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.15rem;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
     }
 
-    section { margin-bottom: 3rem; }
+    .btn-ghost {
+      background: var(--surface-subtle);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+    }
 
-    h2 {
+    /* Sections */
+    section { margin-bottom: 2.75rem; }
+
+    .section-top {
+      margin-bottom: 1.15rem;
+    }
+
+    .section-top h2 {
       font-size: 1.35rem;
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--border);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.2rem;
     }
 
-    .grid {
+    .section-top p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Cards & Grids */
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 1rem;
     }
 
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 14px;
       padding: 1.25rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.4rem;
+      font-size: 1.04rem;
+      line-height: 1.35;
+      margin-bottom: 0.45rem;
     }
 
     .card p {
       color: var(--muted);
-      font-size: 0.92rem;
-      margin-bottom: 0.85rem;
+      font-size: 0.89rem;
+      margin-bottom: 0.95rem;
     }
 
-    .tag {
-      display: inline-block;
-      font-size: 0.78rem;
-      padding: 0.2rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      margin-right: 0.35rem;
-      margin-bottom: 0.35rem;
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: auto;
     }
 
-    .card a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.9rem;
+    .pill {
+      font-size: 0.75rem;
       font-weight: 500;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      background: var(--surface-subtle);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .panel p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .panel p:last-child { margin-bottom: 0; }
+
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .contact-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
     }
 
     footer {
-      margin-top: 4rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.35rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.84rem;
     }
   </style>
 </head>
-<body>
+<body class="dark">
+
+  <!-- 10 Engineering Background Photos (changes every 25 seconds) -->
+  <div class="bg-slideshow" id="bgSlideshow" aria-hidden="true"></div>
+  <div class="bg-overlay" aria-hidden="true"></div>
+
   <div class="container">
     <nav>
-      <div class="logo">YourName.</div>
-      <div class="nav-links">
+      <a href="#" class="brand">Joseph Kimani</a>
+      <div class="nav-group">
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <button class="theme-btn" id="themeToggle">Dark Mode</button>
+        <button class="theme-btn" id="themeToggle">Light Mode</button>
       </div>
     </nav>
 
-    <header>
-      <h1>Hi, I'm Your Name.</h1>
+    <header class="hero">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span>Engineering &bull; Hardware &bull; CAD &bull; Web</span>
+      </div>
+      <h1>Joseph Kimani</h1>
+      <div class="hero-role">Mechatronics, Mechanical &amp; Electrical Systems Builder</div>
       <p>
-        I build practical hardware, software, and web projects. Here is a selection of things I have designed, tested, and shipped.
+        I build hands-on electronic circuits, parametric CAD mechanisms, 3D models, and clean web tools—grounded in first-principles engineering analysis and collaborative problem-solving.
       </p>
-      <a class="cta" href="#contact">Get in Touch</a>
+      <div class="cta-row">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="mailto:keemanijoseph@gmail.com" class="btn-ghost">keemanijoseph@gmail.com</a>
+        <button class="btn-ghost" id="copyEmail">Copy Email</button>
+      </div>
     </header>
 
     <section id="projects">
-      <h2>Featured Projects</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Project One</h3>
-          <p>Describe what you built, the problem it solves, and the key outcome in two short sentences.</p>
+      <div class="section-top">
+        <h2>Projects &amp; Builds</h2>
+        <p>Practical prototypes, CAD assemblies, circuit systems, and technical work.</p>
+      </div>
+      <div class="projects-grid">
+        <article class="card">
           <div>
-            <span class="tag">HTML/CSS</span>
-            <span class="tag">JavaScript</span>
+            <div class="card-top"><span>Hardware &amp; Power</span><span>01</span></div>
+            <h3>TRIAC Automatic Street Light Controller</h3>
+            <p>Built and tested an AC dusk-to-dawn lighting circuit using a BT136 TRIAC, LDR light sensor, and 100k&Omega; biasing network with multimeter diagnostics.</p>
           </div>
-          <a href="#" target="_blank">View Project &rarr;</a>
-        </div>
+          <div class="pill-list">
+            <span class="pill">BT136 TRIAC</span>
+            <span class="pill">LDR</span>
+            <span class="pill">AC Switching</span>
+          </div>
+        </article>
 
-        <div class="card">
-          <h3>Project Two</h3>
-          <p>Highlight another build, simulation, CAD model, or prototype you created and how it works.</p>
+        <article class="card">
           <div>
-            <span class="tag">Design</span>
-            <span class="tag">Engineering</span>
+            <div class="card-top"><span>Mechanical CAD</span><span>02</span></div>
+            <h3>Parametric Scissor Lift in FreeCAD</h3>
+            <p>Modeled a multi-link scissor lift assembly in FreeCAD using Sketcher and Part Design workbenches with mechanical constraints and component clearances.</p>
           </div>
-          <a href="#" target="_blank">View Project &rarr;</a>
-        </div>
+          <div class="pill-list">
+            <span class="pill">FreeCAD</span>
+            <span class="pill">CAD Assembly</span>
+            <span class="pill">Mechanisms</span>
+          </div>
+        </article>
 
-        <div class="card">
-          <h3>Project Three</h3>
-          <p>Share a third project or experiment, including any tools, hardware, or frameworks involved.</p>
+        <article class="card">
           <div>
-            <span class="tag">Electronics</span>
-            <span class="tag">Automation</span>
+            <div class="card-top"><span>Analog &amp; Digital</span><span>03</span></div>
+            <h3>Op-Amp Filters, Oscillators &amp; Logic</h3>
+            <p>Worked through active filters, summing/integrator op-amp stages, Wien bridge oscillators, BJT biasing, RLC transients, and 2's complement digital logic.</p>
           </div>
-          <a href="#" target="_blank">View Project &rarr;</a>
-        </div>
+          <div class="pill-list">
+            <span class="pill">Op-Amps</span>
+            <span class="pill">BJTs &amp; RLC</span>
+            <span class="pill">Digital Logic</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="card-top"><span>Kinematics &amp; Mfg</span><span>04</span></div>
+            <h3>Planar Mechanisms &amp; Materials Study</h3>
+            <p>Analyzed velocity and motion in crank-and-slotted-lever and Scotch yoke mechanisms alongside CNC milling, machining, and steel heat-treatment processes.</p>
+          </div>
+          <div class="pill-list">
+            <span class="pill">Kinematics</span>
+            <span class="pill">CNC &amp; Machining</span>
+            <span class="pill">Heat Treatment</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="card-top"><span>3D Modeling</span><span>05</span></div>
+            <h3>3D Mechanical &amp; Asset Modeling in Blender</h3>
+            <p>Created 3D models and rendered forms in Blender to explore hard-surface geometry, proportions, and visual presentation for technical concepts.</p>
+          </div>
+          <div class="pill-list">
+            <span class="pill">Blender</span>
+            <span class="pill">3D Modeling</span>
+            <span class="pill">Rendering</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="card-top"><span>Web &amp; Market Data</span><span>06</span></div>
+            <h3>Web Deployments &amp; XAU/USD Macro Tracking</h3>
+            <p>Deployed static web portfolios via GitHub and Render while tracking U.S. macro releases (CPI, PPI, NFP, FOMC) alongside technical price action on gold.</p>
+          </div>
+          <div class="pill-list">
+            <span class="pill">HTML / CSS / JS</span>
+            <span class="pill">Git &amp; Render</span>
+            <span class="pill">XAU/USD</span>
+          </div>
+        </article>
       </div>
     </section>
 
     <section id="skills">
-      <h2>Skills &amp; Tools</h2>
-      <div>
-        <span class="tag">HTML &amp; CSS</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">Git &amp; GitHub</span>
-        <span class="tag">CAD / 3D Modeling</span>
-        <span class="tag">Circuit Design</span>
-        <span class="tag">Problem Solving</span>
+      <div class="section-top">
+        <h2>Skills &amp; Tools</h2>
+        <p>Core engineering, design, and software skills used across solo and shared builds.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="card">
+          <div>
+            <div class="card-top"><span>CAD &amp; 3D</span></div>
+            <h3>Design &amp; Modeling</h3>
+            <p>Parametric modeling, mechanism geometry, and 3D visual assets.</p>
+          </div>
+          <div class="pill-list">
+            <span class="pill">FreeCAD</span>
+            <span class="pill">Blender</span>
+            <span class="pill">Kinematics</span>
+            <span class="pill">Materials Science</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="card-top"><span>Electronics</span></div>
+            <h3>Circuits &amp; Lab Testing</h3>
+            <p>Circuit design, power switching, and hands-on multimeter troubleshooting.</p>
+          </div>
+          <div class="pill-list">
+            <span class="pill">Analog Circuits</span>
+            <span class="pill">Digital Logic</span>
+            <span class="pill">TRIAC / AC</span>
+            <span class="pill">Diagnostics</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="card-top"><span>Software &amp; Web</span></div>
+            <h3>Code &amp; Deployment</h3>
+            <p>Responsive static websites, source control, and continuous cloud deploys.</p>
+          </div>
+          <div class="pill-list">
+            <span class="pill">HTML</span>
+            <span class="pill">CSS</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">GitHub &amp; Render</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="card-top"><span>Analysis</span></div>
+            <h3>Math &amp; Systems</h3>
+            <p>Multivariable calculus, dynamic systems, and structured market analysis.</p>
+          </div>
+          <div class="pill-list">
+            <span class="pill">Calculus III</span>
+            <span class="pill">Control &amp; RLC</span>
+            <span class="pill">Technical Analysis</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-top">
+        <h2>About</h2>
+        <p>Engineering student in Kenya focused on practical execution and first-principles clarity.</p>
+      </div>
+      <div class="panel">
+        <p>
+          I'm <strong>Joseph Kimani</strong>, studying engineering across mechanical, electrical, and mechatronics topics while building real circuits, CAD assemblies, and web projects. I like breaking complex problems down step by step—whether debugging a physical circuit on the bench, working through multi-variable math and mechanism kinematics, or structuring a clean web layout.
+        </p>
+        <p>
+          I also collaborate closely on technical projects and skill-sharing, combining hardware and software workflows with disciplined analytical habits.
+        </p>
       </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        Want to collaborate or ask about my work? Reach me at
-        <a href="mailto:youremail@example.com" style="color: var(--accent);">youremail@example.com</a>
-        or connect on GitHub.
-      </p>
+      <div class="contact-card">
+        <div>
+          <h3>Get in Touch</h3>
+          <p>Reach out directly at <code class="mono">keemanijoseph@gmail.com</code> for projects, builds, or collaborations.</p>
+        </div>
+        <div class="cta-row">
+          <a href="mailto:keemanijoseph@gmail.com" class="btn-primary">Send Email</a>
+          <a href="https://github.com/itskym736-creator" target="_blank" rel="noopener" class="btn-ghost">GitHub</a>
+        </div>
+      </div>
     </section>
 
     <footer>
-      &copy; <span id="year"></span> Your Name. Hosted on Render.
+      <div>&copy; <span id="year"></span> Joseph Kimani &bull; keemanijoseph@gmail.com</div>
+      <div class="mono" id="slideCounter">Backdrop 1/10 (25s)</div>
     </footer>
   </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    const toggle = document.getElementById("themeToggle");
-    toggle.addEventListener("click", () => {
+    const themeBtn = document.getElementById("themeToggle");
+    themeBtn.addEventListener("click", () => {
       document.body.classList.toggle("dark");
-      toggle.textContent = document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
+      themeBtn.textContent = document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
     });
+
+    const copyBtn = document.getElementById("copyEmail");
+    copyBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText("keemanijoseph@gmail.com").then(() => {
+        const prev = copyBtn.textContent;
+        copyBtn.textContent = "Copied!";
+        setTimeout(() => { copyBtn.textContent = prev; }, 2000);
+      });
+    });
+
+    // 10 Engineering Background Photos rotating every 25 seconds
+    const engineeringPhotos = [
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=1920&q=80"
+    ];
+
+    const slideshow = document.getElementById("bgSlideshow");
+    const counter = document.getElementById("slideCounter");
+    let idx = 0;
+
+    engineeringPhotos.forEach((src, i) => {
+      const slide = document.createElement("div");
+      slide.className = i === 0 ? "bg-slide active" : "bg-slide";
+      slide.style.backgroundImage = `url('${src}')`;
+      slideshow.appendChild(slide);
+    });
+
+    const slideNodes = document.querySelectorAll(".bg-slide");
+
+    setInterval(() => {
+      slideNodes[idx].classList.remove("active");
+      idx = (idx + 1) % slideNodes.length;
+      slideNodes[idx].classList.add("active");
+      counter.textContent = `Backdrop ${idx + 1}/10 (25s)`;
+    }, 25000);
   </script>
 </body>
 </html>
